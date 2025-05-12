@@ -26,6 +26,74 @@ ul {
     font-weight: normal;
 }
 
+body{
+    height: 100vh;
+}
+
+/* NAV BAR*/
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    height: 10vh;
+    padding: 0 20px;
+    background-color: aqua;
+    gap: 9px;
+}
+
+#logo{
+    height: 7vh;
+    width: 50%;
+    background-color: red;
+
+}
+
+#bruker{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    gap: 10%;
+    height: 7vh;
+    width: 30%;
+    background-color: blueviolet;
+}
+
+#bruker i{
+    font-size: 30px;
+}
+
+
+
+#burger{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+    width: 20%;
+    background-color: chartreuse;
+    position: relative;
+}
+
+#burger i{
+    font-size: 30px;
+}
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* or use 40px etc depending on icon size */
+    left: 0;
+    background-color: black;
+    padding: 10px;
+}
+
 
 
 

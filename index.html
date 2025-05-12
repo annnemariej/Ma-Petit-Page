@@ -5,11 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hjem</title>     <!--Klarer å bytte på engelsk?-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body class="index">
-    <nav>
-        
-    </nav>
-    
+    <main>
+        <nav>
+            <div id="logo">
+                logo
+            
+            </div>
+
+            <div id="bruker">
+                <div class="brukernavn"> xxxxxxxxx</div>
+                <i class="fa-solid fa-user" ></i>
+
+            </div>
+
+            <div class="dropdown" id="burger">
+                
+
+                <button  onmouseover="showDropdownContent()" onmouseleave="hideDropDown()">
+                    <i class="fa-solid fa-bars" ></i>
+                    
+                </button>
+                    
+                <div class="dropdown-content" onmouseover="showDropdownContent()" onmouseleave="hideDropDown()">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+            
+
+        </nav>
+
+
+    </main> 
+    <script src="script.js"></script>
 </body>
 </html>
