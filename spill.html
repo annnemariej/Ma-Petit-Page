@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spill</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="spill">
     <main>
         <nav>
+            <div id="logo">Ma Petit Page</div>
+          
+            <div id="bruker">
+              <div class="brukernavn">Navn</div>
+              <i class="fa-solid fa-user"></i>
+            </div>
+          
+            <div id="burger">
+                <button id="burger-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="dropdown-content" id="dropdown-content">
+                    <button onclick="darkModeLightMode()">Darkmode</button>
+                    <a href="index.html">Hjem</a>
+                    <a href="spill.html">Spill</a>
+                    <a href="bruker.html">Bruker</a>
+                    <!-- <a href="#">Garderobe?</a>-->
+                </div>
+            </div>
             
-        </nav>
+            </div>
+          </nav>
+
+
     </main>
-    
+    <script src="script.js"></script>
 </body>
 </html>

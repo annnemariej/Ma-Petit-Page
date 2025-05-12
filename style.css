@@ -69,35 +69,52 @@ nav{
 
 
 
-#burger{
+#burger {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 7vh;
     width: 20%;
-    background-color: chartreuse;
-    position: relative;
+    height: 7vh;
+    background-color: green;
 }
 
 #burger i{
-    font-size: 30px;
+    width: fit-content;
+    font-size: 40px;
 }
 
 
+#burger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
 .dropdown-content {
+    width: 100%;
+    height: 40vh;
     display: none;
     position: absolute;
-    top: 100%; /* or use 40px etc depending on icon size */
+    opacity: 0;
+    visibility: hidden;
+    top: 100%;
     left: 0;
     background-color: black;
+    color: white;
     padding: 10px;
+    z-index: 999;
+    flex-direction: column;
+    transition: opacity 0.2s ease-in-out, visibility 0s 0.2s;
 }
 
 
 
-
-
+.dropdown-content.show {
+opacity: 1;
+visibility: visible;
+display: flex;
+}
 
 
 /* INDEX*/
