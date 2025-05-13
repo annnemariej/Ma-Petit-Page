@@ -1,25 +1,25 @@
 
 ///NAV BAR
-const burger = document.getElementById("burger");
-const dropdown = document.getElementById("dropdown-content");
+const burger = document.getElementById("burger")
+const dropdown = document.getElementById("dropdown-content")
 
 burger.addEventListener("mouseenter", () => {
-    dropdown.classList.add("show");
+    dropdown.classList.add("show")
 });
 
 burger.addEventListener("mouseleave", () => {
-    dropdown.classList.remove("show");
+    dropdown.classList.remove("show")
 });
 
 
 //Darkmode
 
-let light = localStorage.getItem("light") === "true" ? true : false; 
-document.body.classList.add(light ? "light" : "dark");
+let light = localStorage.getItem("light") === "true" ? true : false 
+document.body.classList.add(light ? "light" : "dark")
 function darkModeLightMode() {
     if (light) {
         console.log("det er light mode")
-        light = false;
+        light = false
         localStorage.setItem("light", false)
         document.body.classList.remove("light")
         document.body.classList.add("dark")
@@ -31,3 +31,48 @@ function darkModeLightMode() {
         document.body.classList.add("light")
     }
 }
+
+window.onload = function () {
+    const isLoggedIn = localStorage.getItem("loggedIn")
+  
+    if (isLoggedIn === "true") {
+      showMainContent()
+    } else {
+      showLoginOverlay()
+    }
+  }
+  
+//log in side (bare passord hittil, ikke brukernavn)
+  function checkAccess() {
+    const codeInput = document.getElementById("access-code")
+    const code = codeInput.value
+    const errorMsg = document.getElementById("error-message")
+  
+    const validPattern = /^(?=.*[A-Z])(?=.*\d).{6,}$/; //må være mins 6 bokstaver lnag ,  1 stor bokstav + 1 tall
+  
+    if (validPattern.test(code)) {
+      localStorage.setItem("loggedIn", "true")
+      showMainContent()
+    } else {
+      errorMsg.textContent = "Minst 6 bokstaver, 1 stor bokstav og ett tall"
+    }
+  
+    codeInput.value = ""
+  }
+
+  function showMainContent() {
+    document.getElementById("login-overlay").style.display = "none"
+    document.getElementById("main-content").style.display = "block"
+  }
+  
+  function showLoginOverlay() {
+    document.getElementById("login-overlay").style.display = "flex"
+    document.getElementById("main-content").style.display = "none"
+    document.getElementById("access-code").value = ""
+    document.getElementById("error-message").textContent = ""
+  }
+  
+  function logout() {
+    localStorage.setItem("loggedIn", "false")
+    showLoginOverlay()
+  }
