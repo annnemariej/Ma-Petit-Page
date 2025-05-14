@@ -36,7 +36,7 @@ body{
 }
 
 main{
-    margin-top: 10vh;
+    margin-top: 5vh;
     display: grid;
     grid-template-columns: repeat(12, 1fr);  
     grid-template-rows: repeat(12, auto); 
@@ -52,17 +52,20 @@ nav{
     width: 100%;
     top: 0;
     z-index: 1;
-    height: 10vh;
+    height: 5vh;
     padding: 0 20px;
-    backdrop-filter: blur(10px);
-    gap: 9px;
+    background-color: beige;
+    margin: 10px;
+    border-radius: 50px;
+    text-transform: uppercase;
 }
 
 #logo{
-    height: 7vh;
-    width: 50%;
-    background-color: red;
+    height: 3vh;
 
+}
+#logo img{
+    height: 3vh;
 }
 
 #bruker{
@@ -71,13 +74,12 @@ nav{
     justify-content: space-evenly;
     flex-direction: row;
     gap: 10%;
-    height: 7vh;
+    height: 3vh;
     width: 30%;
-    background-color: blueviolet;
 }
 
 #bruker i{
-    font-size: 20px;
+    font-size: 15px;
 }
 
 
@@ -88,13 +90,12 @@ nav{
     align-items: center;
     justify-content: center;
     width: 20%;
-    height: 7vh;
-    background-color: green;
+    height: 3vh;
 }
 
 #burger i{
     width: fit-content;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 
