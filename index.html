@@ -14,8 +14,9 @@
   <div id="login-overlay" style="display: none;">
     <div class="login-box">
       <h2>Logg deg inn</h2>
+      <input type="text" id="username" placeholder="Brukernavn" >
       <input type="password" id="access-code" placeholder="Passord" />
-      <button onclick="checkAccess()">Enter</button>
+      <button onclick="checkAccess();bruker()">Enter</button>
       <p id="error-message"></p>
     </div>
   </div>
@@ -37,7 +38,6 @@
           <a href="spill.html">Spill</a>
           <a href="bruker.html">Bruker</a>
           <!-- <a href="#">Garderobe?</a>-->
-
           <button onclick="logout()">Logout</button>
         </div>
       </div>

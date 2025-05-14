@@ -1,5 +1,4 @@
-
-///NAV BAR
+// NAV BAR
 const burger = document.getElementById("burger")
 const dropdown = document.getElementById("dropdown-content")
 
@@ -12,10 +11,10 @@ burger.addEventListener("mouseleave", () => {
 });
 
 
-//Darkmode
-
-let light = localStorage.getItem("light") === "true" ? true : false
+// Darkmode
+let light = localStorage.getItem("light") === "true"
 document.body.classList.add(light ? "light" : "dark")
+
 function darkModeLightMode() {
   if (light) {
     console.log("det er light mode")
@@ -25,30 +24,37 @@ function darkModeLightMode() {
     document.body.classList.add("dark")
   } else {
     console.log("det er darkmode")
-    light = true;
+    light = true
     localStorage.setItem("light", true)
     document.body.classList.remove("dark")
     document.body.classList.add("light")
   }
 }
 
-window.onload = function () {
-  const isLoggedIn = localStorage.getItem("loggedIn")
+// Brukernavn
+const inputElement = document.getElementById("username")
 
-  if (isLoggedIn === "true") {
-    showMainContent()
-  } else {
-    showLoginOverlay()
-  }
+function bruker() {
+  let userbruker = inputElement.value
+  localStorage.setItem("user", userbruker)
+  updateUserNameInElements()
 }
 
-//log in side (bare passord hittil, ikke brukernavn)
+function updateUserNameInElements() {
+  const viseusername = document.querySelectorAll(".brukernavn")
+  let navn = localStorage.getItem("user")
+
+  viseusername.forEach(element => {
+    element.innerHTML = navn ?? ""
+  })
+}
+
+// Passord
 function checkAccess() {
   const codeInput = document.getElementById("access-code")
   const code = codeInput.value
   const errorMsg = document.getElementById("error-message")
-
-  const validPattern = /^(?=.*[A-Z])(?=.*\d).{6,}$/; //må være mins 6 bokstaver lnag ,  1 stor bokstav + 1 tall
+  const validPattern = /^(?=.*[A-Z])(?=.*\d).{6,}$/
 
   if (validPattern.test(code)) {
     localStorage.setItem("loggedIn", "true")
@@ -56,7 +62,6 @@ function checkAccess() {
   } else {
     errorMsg.textContent = "Minst 6 bokstaver, 1 stor bokstav og ett tall"
   }
-
   codeInput.value = ""
 }
 
@@ -75,4 +80,14 @@ function showLoginOverlay() {
 function logout() {
   localStorage.setItem("loggedIn", "false")
   showLoginOverlay()
+}
+
+window.onload = function () {
+  updateUserNameInElements()
+  const isLoggedIn = localStorage.getItem("loggedIn")
+  if (isLoggedIn === "true") {
+    showMainContent()
+  } else {
+    showLoginOverlay()
+  }
 }
