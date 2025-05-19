@@ -91,3 +91,68 @@ window.onload = function () {
     showLoginOverlay()
   }
 }
+
+//todo liste 
+
+const hovedInput = document.getElementById("maininput");
+const containerElm = document.getElementById("todocontainer");
+
+window.addEventListener("load", () => {
+    const lagredeTodos = JSON.parse(localStorage.getItem("todos")) || [];
+    lagredeTodos.forEach(todo => {
+        lagTodoElement(todo.tekst, todo.ferdig);
+    });
+});
+
+function hentOgLag() {
+    const skrevet = hovedInput.value.trim();
+    if (!skrevet) return;
+
+    lagTodoElement(skrevet, false);
+    lagreTilLocalStorage();
+    hovedInput.value = "";
+}
+
+function lagTodoElement(tekst, ferdig) {
+    const divelm = document.createElement("div")
+    divelm.className = "newtodo"
+    containerElm.appendChild(divelm)
+
+    const inputelm = document.createElement("input")
+    inputelm.type = "checkbox"
+    inputelm.className = "minorinput"
+    inputelm.checked = ferdig
+    divelm.appendChild(inputelm)
+
+    const tekstelm = document.createElement("div")
+    tekstelm.className = "tekst"
+    tekstelm.textContent = tekst
+    if (ferdig) tekstelm.classList.add("ferdig")
+    divelm.appendChild(tekstelm)
+
+    inputelm.addEventListener("change", () => {
+        tekstelm.classList.toggle("ferdig", inputelm.checked)
+        lagreTilLocalStorage()
+    });
+
+    const trashElm = document.createElement("button")
+    trashElm.className = "trash"
+    trashElm.innerHTML = '<i class="fa-solid fa-trash"></i>'
+    divelm.appendChild(trashElm)
+
+    trashElm.addEventListener("click", () => {
+        divelm.remove()
+        lagreTilLocalStorage()
+    });
+}
+
+function lagreTilLocalStorage() {
+    const alleTodos = []
+    const alleDivs = containerElm.querySelectorAll(".newtodo")
+    alleDivs.forEach(div => {
+        const tekst = div.querySelector(".tekst").textContent
+        const ferdig = div.querySelector("input").checked
+        alleTodos.push({ tekst, ferdig })
+    });
+    localStorage.setItem("todos", JSON.stringify(alleTodos))
+}
