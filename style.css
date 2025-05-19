@@ -1,5 +1,6 @@
 /*LINKER*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 
 /* GENERAL*/
@@ -42,6 +43,22 @@ main{
     grid-template-columns: repeat(12, 1fr);  
     grid-template-rows: repeat(24, auto); 
     height: 200vh;
+}
+
+#velkommen{
+    grid-row: 2/5;
+    grid-column: 2/6;
+}
+
+#velkommen h1{
+    font-size: 50px;
+    color: beige;
+    font-family: "Borel", cursive;
+}
+
+#smilingIcons{
+    grid-column: 10/12;
+    grid-row: 1/11;
 }
 
 /* NAV BAR*/
