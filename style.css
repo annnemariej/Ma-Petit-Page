@@ -40,31 +40,40 @@ body {
 main {
     margin-top: calc(5vh + 10px);
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(24, 60px);
+    grid-template-columns: repeat(12, 1fr);  
+    grid-template-rows: repeat(24, 58.5px); 
     height: 200vh;
 }
 
-#velkommen {
-    grid-row: 2/8;
-    grid-column: 2/6;
+#velkommen{
+    grid-row: 2/5;
+    grid-column: 2/8;
+    display: flex;
+    flex-direction: column;
+
 }
 
 #velkommen h1 {
     font-size: 80px;
     color: beige;
     font-family: "Borel", cursive;
+    height: 110px;
 }
 
 #smilingIcons {
     grid-column: 10/13;
-    grid-row: 2/5;
+    grid-row: 2/11;
     font-size: 150px;
     display: flex;
     flex-direction: column;
     color: beige;
     justify-content: space-between;
     align-items: center;
+}
+
+main .brukernavn{
+    font-size: 50px;
+    color: #44613b;
 }
 
 /* NAV BAR*/
