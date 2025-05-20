@@ -1,14 +1,28 @@
 // NAV BAR
 const burger = document.getElementById("burger")
 const dropdown = document.getElementById("dropdown-content")
+let menuopen = false
+let sections = document.querySelectorAll("section")
 
-burger.addEventListener("mouseenter", () => {
-  dropdown.classList.add("show")
-});
+//animasjon ved scroll//
+window.onscroll = () =>{
+  sections.forEach(sec =>{
+    let top = window.scrollY
+    let offset = sec.offsetTop - 150
+    let height = sec.offsetHeight
 
-burger.addEventListener("mouseleave", () => {
-  dropdown.classList.remove("show")
-});
+    if(top >= offset && top < offset + height){
+      sec.classList.add("showAnimation")
+    }else{
+      sec.classList.remove("showAnimation")
+    }
+  })
+}
+
+burger.addEventListener("click", () =>{
+  menuopen = !menuopen;
+  dropdown.classList.toggle("show", menuopen)
+})
 
 
 // Darkmode
