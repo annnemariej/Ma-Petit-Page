@@ -1,14 +1,13 @@
 /*LINKER*/
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Borel&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Quicksand:wght@300..700&display=swap');
+
 
 
 /* GENERAL*/
 html {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: "Open Sans";
+    font-family: "Quicksand", sans-serif;
 }
 
 *,
@@ -74,7 +73,8 @@ section{
 #velkommen h1 {
     font-size: 80px;
     color: var(--TxtLightMode);
-    font-family: "Borel", cursive;
+    font-family: "Borel";
+    font-weight: 500;
     height: 110px;
 }
 
@@ -216,6 +216,7 @@ nav {
     text-transform: uppercase;
     font-size: 80px;
     user-select: none;
+    font-family: "Quicksand", sans-serif;
 }
 .dropdown-content button:hover{
     animation: vibrate-1 0.3s linear infinite both;
