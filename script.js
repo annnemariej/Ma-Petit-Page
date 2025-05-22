@@ -3,7 +3,6 @@ const burger = document.getElementById("burger-btn")
 const dropdown = document.getElementById("dropdown-content")
 let menuopen = false
 let sections = document.querySelectorAll("section")
-const loader = document.getElementById("loader")
 const main = document.querySelector("main")
 const body = document.querySelector("body")
 const xMark = document.querySelector(".fa-xmark")
