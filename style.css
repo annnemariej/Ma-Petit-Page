@@ -65,6 +65,12 @@ section{
 .sec_2{
     background-color: white;
 }
+.sec_3.showAnimation #todocontainer{
+    animation: roll-in-left 0.6s ease-out both;
+}
+.sec_3.showExitAnimation #todocontainer{
+    animation: roll-out-left 0.6s ease-in both;
+}
 
 #velkommen{
     grid-row: 2/5;
@@ -193,14 +199,14 @@ nav {
 }
 
 .dropdown-content {
-    width: 100vw;
+    width: 102vw;
     height: 101vh;
     display: none;
     position: absolute;
     opacity: 0;
     visibility: hidden;
     top: -59px;
-    right: 2px;
+    right: 11px;
     background-color: var(--TxtLightMode);
     padding: 30px;
     z-index: 999;
@@ -314,15 +320,17 @@ burger-btn.show{
     width: 60%;
     gap: 10px;
     background-color: white;
-    border-radius: 9px;
-    padding: 8px;
+    border-radius: 20px;
+    padding: 30px;
+    opacity: 0;
 }
 
 #addnewtodo {
-    width: 80%;
+    width: 100%;
     height: 50px;
     display: flex;
     gap: 10px;
+    border-bottom: 1px solid black;
 
 }
 
@@ -332,23 +340,27 @@ burger-btn.show{
     text-align: center;
     border-radius: 10px;
     border: transparent;
+    font-family: "Quicksand";
 }
 
 #addnewtodo button {
     color: black;
-    background-color: #69975b;
-    width: 10%;
-    border: 1px solid #006D6D;
-    border-radius: 10px;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border: 0.5px black solid;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }
 
 .newtodo {
     width: 100%;
-    height: 70px;
+    height: 50px;
     display: flex;
     gap: 0px;
-    background-color: white;
+    background-color: whitesmoke;
     border-radius: 10px;
+    border-bottom: 0.5px solid black;
+    align-items: center;
 
 }
 
@@ -363,7 +375,7 @@ burger-btn.show{
 }
 
 .newtodo .tekst {
-    padding: 20px;
+
     width: 80%;
     font-size: 30px;
 }
@@ -487,4 +499,47 @@ input[type="checkbox"]:checked:after {
           opacity: 1;
         }
       }
+  }
+  @keyframes jello-horizontal {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+      transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+      transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  @keyframes roll-in-left {
+    0% {
+      transform: translateX(-800px) rotate(-540deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+  }
+  @keyframes roll-out-left {
+    0% {
+      transform: translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-1000px) rotate(-540deg);
+      opacity: 0;
+    }
   }

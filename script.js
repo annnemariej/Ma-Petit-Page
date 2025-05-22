@@ -19,9 +19,11 @@ window.onscroll = () =>{
     let height = sec.offsetHeight
 
     if(top >= offset && top < offset + height){
+      sec.classList.remove("showExitAnimation")
       sec.classList.add("showAnimation")
     }else{
       sec.classList.remove("showAnimation")
+      sec.classList.add("showExitAnimation")
     }
   })
 }
