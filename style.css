@@ -64,6 +64,7 @@ section{
     grid-column: 2/8;
     display: flex;
     flex-direction: column;
+    user-select: none;
 }
 
 #velkommen h1 {
@@ -105,6 +106,7 @@ nav {
     margin: 10px;
     border-radius: 50px;
     text-transform: uppercase;
+    user-select: none;
 }
 
 .høyre {
@@ -437,22 +439,6 @@ input[type="checkbox"]:checked:after {
     }
   }
 
-  @keyframes circleIn{
-    from {
-        clipPath: circle(0% at 0% 0%);
-    }
-    to{
-        clipPath: circle(150%);
-    }
-  }
-  @keyframes circleOut{
-    from {
-        clip-path: circle(150%);
-    }
-    to{
-        clip-path: circle(0% at 0% 0%);
-    }
-  }
   @keyframes morph{
     0%{
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
