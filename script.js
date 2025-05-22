@@ -5,6 +5,7 @@ let menuopen = false
 let sections = document.querySelectorAll("section")
 const loader = document.getElementById("loader")
 const main = document.querySelector("main")
+const body = document.querySelector("body")
 
 //animasjon ved meny knapp
 
@@ -28,6 +29,9 @@ window.onscroll = () =>{
 burger.addEventListener("click", () =>{
   menuopen = !menuopen;
   dropdown.classList.toggle("show", menuopen)
+  if(menuopen){
+    body.style.overflow = "hidden"
+  }
 
 })
 
