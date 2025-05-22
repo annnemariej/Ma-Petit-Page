@@ -31,6 +31,8 @@ burger.addEventListener("click", () =>{
   dropdown.classList.toggle("show", menuopen)
   if(menuopen){
     body.style.overflow = "hidden"
+  }else{
+    body.style.overflow = "auto"
   }
 
 })
