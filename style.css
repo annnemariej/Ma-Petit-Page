@@ -349,7 +349,7 @@ burger-btn.show{
     width: 40px;
     height: 40px;
     border: 0.5px black solid;
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    border-radius: 70% 30% 40% 60% / 40% 70% 30% 60%;
 }
 
 .newtodo {
@@ -361,11 +361,13 @@ burger-btn.show{
     border-radius: 10px;
     border-bottom: 0.5px solid black;
     align-items: center;
+    padding: 5px;
 
 }
 
 .newtodo input {
-    width: 10%;
+    width: 30px;
+    height: 30px;
     margin: 5px;
     background: linear-gradient(to bottom left, lightslategray, white);
     position: relative;
@@ -377,14 +379,14 @@ burger-btn.show{
 .newtodo .tekst {
 
     width: 80%;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .newtodo button {
-    background-color: red;
+    background-color: whitesmoke;
     width: 10%;
     border: none;
-    font-size: 25px;
+    font-size: 20px;
 
 }
 
