@@ -3,6 +3,11 @@ const burger = document.getElementById("burger")
 const dropdown = document.getElementById("dropdown-content")
 let menuopen = false
 let sections = document.querySelectorAll("section")
+const loader = document.getElementById("loader")
+const main = document.querySelector("main")
+
+//animasjon ved meny knapp
+
 
 //animasjon ved scroll//
 window.onscroll = () =>{
@@ -19,10 +24,13 @@ window.onscroll = () =>{
   })
 }
 
+//menyknapp
 burger.addEventListener("click", () =>{
   menuopen = !menuopen;
   dropdown.classList.toggle("show", menuopen)
+
 })
+
 
 
 // Darkmode
