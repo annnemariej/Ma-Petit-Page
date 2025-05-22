@@ -1,11 +1,12 @@
 // NAV BAR
-const burger = document.getElementById("burger")
+const burger = document.getElementById("burger-btn")
 const dropdown = document.getElementById("dropdown-content")
 let menuopen = false
 let sections = document.querySelectorAll("section")
 const loader = document.getElementById("loader")
 const main = document.querySelector("main")
 const body = document.querySelector("body")
+const xMark = document.querySelector(".fa-xmark")
 
 //animasjon ved meny knapp
 
@@ -29,6 +30,8 @@ window.onscroll = () =>{
 burger.addEventListener("click", () =>{
   menuopen = !menuopen;
   dropdown.classList.toggle("show", menuopen)
+  burger.classList.toggle("show", menuopen)
+  xMark.classList.toggle("show", menuopen)
   if(menuopen){
     body.style.overflow = "hidden"
   }else{

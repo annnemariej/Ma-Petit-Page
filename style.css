@@ -238,6 +238,18 @@ nav {
     visibility: visible;
     display: flex;  
 }
+#burger-btn .fa-xmark{
+    display: none ;
+    color: var(--BGLightMode);
+    z-index: 9999;
+    
+}
+#burger-btn .fa-xmark.show{
+    display: block;
+}
+burger-btn.show{
+    display: none;
+}
 
 #sisteNytt{
     border-top: 1px solid black;
