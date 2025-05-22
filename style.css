@@ -57,6 +57,10 @@ section{
     animation-duration: 1s;
     animation-name: slide-in;
 }
+.sec_2 svg{
+    grid-column: 1/13;
+    grid-row: 1/2;
+}
 
 .sec_2{
     background-color: white;
@@ -238,6 +242,16 @@ nav {
     opacity: 1;
     visibility: visible;
     display: flex;
+}
+
+#sisteNytt{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-row: 1 / 2;
+    grid-column: 1 / 13;
 }
 
 
