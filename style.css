@@ -209,8 +209,7 @@ nav {
     align-items: center;
     font-size: 80px;
     text-transform: uppercase;
-
-
+    animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .dropdown-content button{
@@ -221,6 +220,9 @@ nav {
     font-size: 80px;
     user-select: none;
     font-family: "Quicksand", sans-serif;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 .dropdown-content button:hover{
     animation: vibrate-1 0.3s linear infinite both;
@@ -232,7 +234,13 @@ nav {
     color: var(--BGLightMode);
     text-decoration: none;
     user-select: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
 
+}
+.dropdown-content.active a, .dropdown-content.active button{
+    
 }
 
 
@@ -469,4 +477,15 @@ input[type="checkbox"]:checked:after {
     100%{
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     }
+    @keyframes focus-in-contract {
+        0% {
+          letter-spacing: 1em;
+          filter: blur(12px);
+          opacity: 0;
+        }
+        100% {
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
   }
