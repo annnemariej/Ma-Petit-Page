@@ -109,7 +109,6 @@ nav {
     padding: 0 20px;
     margin: 10px;
     border-radius: 50px;
-    text-transform: uppercase;
     user-select: none;
 }
 
@@ -205,6 +204,7 @@ nav {
     justify-content: center;
     align-items: center;
     font-size: 80px;
+    text-transform: uppercase;
 
 
 }
@@ -291,7 +291,7 @@ nav {
     align-items: center;
     width: 60%;
     gap: 10px;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--BGLightMode);
     border-radius: 9px;
     padding: 8px;
 }
