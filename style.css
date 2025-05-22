@@ -32,10 +32,14 @@ ul {
     padding: 0;
     font-weight: normal;
 }
+:root{
+    --BGLightMode: rgb(247, 242, 236);
+    --TxtLightMode: rgb(23, 22, 22);
+}
 
 body {
     height: 200vh;
-    background-color: rgb(247, 242, 236);
+    background-color: var(--BGLightMode);
 }
 
 main {
@@ -69,7 +73,7 @@ section{
 
 #velkommen h1 {
     font-size: 80px;
-    color: rgb(0, 0, 0);
+    color: var(--TxtLightMode);
     font-family: "Borel", cursive;
     height: 110px;
 }
@@ -87,7 +91,7 @@ section{
 
 main .brukernavn{
     font-size: 50px;
-    color: rgb(0, 0, 0);
+    color: var(--TxtLightMode);
 }
 
 
@@ -153,7 +157,7 @@ nav {
 #burger i {
     width: fit-content;
     font-size: 15px;
-    color: rgb(0, 0, 0);
+    color: var(--TxtLightMode);
 }
 
 
@@ -175,7 +179,7 @@ nav {
     position: absolute;
     width: 100px;
     height: 100px;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid var(--TxtLightMode);
 }
 .btnOutline1{
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -194,8 +198,7 @@ nav {
     visibility: hidden;
     top: -59px;
     right: 2px;
-    background-color: black;
-    color: white;
+    background-color: var(--TxtLightMode);
     padding: 30px;
     z-index: 999;
     flex-direction: column;
@@ -208,8 +211,8 @@ nav {
 
 .dropdown-content button{
     border: none;
-    background-color: black;
-    color: beige;
+    background-color: var(--TxtLightMode);
+    color: var(--BGLightMode);
     text-transform: uppercase;
     font-size: 80px;
     user-select: none;
@@ -221,7 +224,7 @@ nav {
     animation: vibrate-1 0.3s linear infinite both;
 }
 .dropdown-content a{
-    color: beige;
+    color: var(--BGLightMode);
     text-decoration: none;
     user-select: none;
 
@@ -288,14 +291,14 @@ nav {
     align-items: center;
     width: 60%;
     gap: 10px;
-    background-color: beige;
+    background-color: rgb(0, 0, 0);
     border-radius: 9px;
     padding: 8px;
 }
 
 #addnewtodo {
-    width: 100%;
-    height: 70px;
+    width: 80%;
+    height: 50px;
     display: flex;
     gap: 10px;
 
