@@ -330,8 +330,6 @@ burger-btn.show{
     height: 50px;
     display: flex;
     gap: 10px;
-    border-bottom: 1px solid black;
-
 }
 
 #addnewtodo input {
@@ -341,6 +339,7 @@ burger-btn.show{
     border-radius: 10px;
     border: transparent;
     font-family: "Quicksand";
+    cursor: pointer;
 }
 
 #addnewtodo button {
@@ -350,16 +349,16 @@ burger-btn.show{
     height: 40px;
     border: 0.5px black solid;
     border-radius: 70% 30% 40% 60% / 40% 70% 30% 60%;
+    cursor: pointer;
 }
 
 .newtodo {
     width: 100%;
     height: 50px;
     display: flex;
-    gap: 0px;
+    gap: 5px;
     background-color: whitesmoke;
     border-radius: 10px;
-    border-bottom: 0.5px solid black;
     align-items: center;
     padding: 5px;
 
@@ -373,11 +372,12 @@ burger-btn.show{
     position: relative;
     border: 3px solid #69975b;
     border-radius: 20px;
+    cursor: pointer;
 
 }
 
 .newtodo .tekst {
-
+    user-select: none;
     width: 80%;
     font-size: 20px;
 }
@@ -387,6 +387,7 @@ burger-btn.show{
     width: 10%;
     border: none;
     font-size: 20px;
+    cursor: pointer;
 
 }
 
