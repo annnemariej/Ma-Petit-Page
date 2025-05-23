@@ -7,6 +7,7 @@ const main = document.querySelector("main")
 const body = document.querySelector("body")
 const xMark = document.querySelector(".fa-xmark")
 const toggleSirkel = document.querySelector(".toggleSirkel")
+const codeInput = document.getElementById("access-code")
 
 let curX = 0
 let curY = 0
@@ -138,6 +139,12 @@ function logout() {
   localStorage.setItem("loggedIn", "false")
   showLoginOverlay()
 }
+
+codeInput.addEventListener("keydown", (event)=>{
+  if(event.key === "Enter"){
+    showMainContent()
+  }
+})
 
 window.onload = function () {
   updateUserNameInElements()
