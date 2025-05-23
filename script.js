@@ -130,15 +130,16 @@ window.onload = function () {
 
 //todo liste 
 
-const hovedInput = document.getElementById("maininput");
-const containerElm = document.getElementById("todocontainer");
+const hovedInput = document.getElementById("maininput")
+const containerElm = document.getElementById("todocontainer")
+const addNewKnapp = document.getElementById("addnew")
 
 window.addEventListener("load", () => {
     const lagredeTodos = JSON.parse(localStorage.getItem("todos")) || [];
     lagredeTodos.forEach(todo => {
-        lagTodoElement(todo.tekst, todo.ferdig);
-    });
-});
+        lagTodoElement(todo.tekst, todo.ferdig)
+    })
+})
 
 function hentOgLag() {
     const skrevet = hovedInput.value.trim();
@@ -147,7 +148,14 @@ function hentOgLag() {
     lagTodoElement(skrevet, false);
     lagreTilLocalStorage();
     hovedInput.value = "";
+
 }
+hovedInput.addEventListener("keydown", (event)=>{
+  if(event.key === "Enter"){
+    hentOgLag()
+  }
+})
+
 
 function lagTodoElement(tekst, ferdig) {
     const divelm = document.createElement("div")
