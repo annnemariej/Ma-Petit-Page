@@ -334,6 +334,7 @@ body.dark .toggleSirkel{
     height: 100vh;
     filter: url(#goo) blur(40px);
     position: absolute;
+    cursor: none;
     
 }
 #login-overlay svg{
@@ -545,7 +546,7 @@ body.dark .toggleSirkel{
 
 .newtodo input {
     color: black;
-    background-color: white;
+    background-color: whitesmoke;
     width: 30px;
     height: 30px;
     border: 0.5px black solid;
