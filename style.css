@@ -342,6 +342,8 @@ body.dark .toggleSirkel{
 .gradientsContainer h1{
     color: black;
     z-index: 99999999;
+    position: absolute;
+    user-select: none;
 }
 .g1{
     position: absolute;

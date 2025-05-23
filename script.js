@@ -119,6 +119,16 @@ function checkAccess() {
   }
   codeInput.value = ""
 }
+codeInput.addEventListener("keydown", (event)=>{
+  if(event.key === "Enter"){
+    checkAccess()
+  }
+})
+inputElement.addEventListener("keydown", (event)=>{
+  if(event.key === "Enter"){
+    checkAccess()
+  }
+})
 
 function showMainContent() {
   document.getElementById("login-overlay").style.display = "none"
@@ -144,12 +154,6 @@ function logout() {
   localStorage.setItem("loggedIn", "false")
   showLoginOverlay()
 }
-
-codeInput.addEventListener("keydown", (event)=>{
-  if(event.key === "Enter"){
-    showMainContent()
-  }
-})
 
 window.onload = function () {
   updateUserNameInElements()
