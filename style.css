@@ -365,13 +365,12 @@ burger-btn.show{
 }
 
 .newtodo input {
+    color: black;
+    background-color: whitesmoke;
     width: 30px;
     height: 30px;
-    margin: 5px;
-    background: linear-gradient(to bottom left, lightslategray, white);
-    position: relative;
-    border: 3px solid #69975b;
-    border-radius: 20px;
+    border: 0.5px black solid;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     cursor: pointer;
 
 }
@@ -390,12 +389,19 @@ burger-btn.show{
     cursor: pointer;
 
 }
+#addnewtodo .btnOutline{
+    width: 40px;
+    height: 40px;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    border: 0.5px solid black;
+    top: 30px;
+    right: 30px;
+}
 
 
 input[type="checkbox"] {
     -webkit-appearance: initial;
     appearance: initial;
-    background: linear-gradient(to bottom left, #B7CDB3, #E6F1E2);
     position: relative;
 }
 
