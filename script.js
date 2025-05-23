@@ -6,6 +6,7 @@ let sections = document.querySelectorAll("section")
 const main = document.querySelector("main")
 const body = document.querySelector("body")
 const xMark = document.querySelector(".fa-xmark")
+const toggleSirkel = document.querySelector(".toggleSirkel")
 
 //animasjon ved meny knapp
 
@@ -48,15 +49,28 @@ burger.addEventListener("click", () =>{
 let light = localStorage.getItem("light") === "true"
 document.body.classList.add(light ? "light" : "dark")
 
+function resetAnimation(el) {
+  el.style.animation = 'none'
+  el.offsetHeight
+  el.style.animation = null
+}
+
+
 function darkModeLightMode() {
+
   if (light) {
-    console.log("det er light mode")
+    toggleSirkel.classList.remove("toggle-left")
+    toggleSirkel.classList.add("toggle-right")
+    console.log("det er darkmode")
     light = false
     localStorage.setItem("light", false)
     document.body.classList.remove("light")
     document.body.classList.add("dark")
   } else {
-    console.log("det er darkmode")
+    toggleSirkel.classList.remove("toggle-right")
+    toggleSirkel.classList.add("toggle-left")
+    
+    console.log("det er lightmode")
     light = true
     localStorage.setItem("light", true)
     document.body.classList.remove("dark")

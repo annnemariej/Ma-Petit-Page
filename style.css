@@ -277,7 +277,7 @@ burger-btn.show{
     background-color: white;
 }
 .toggleSirkel {
-    background-color: black;
+    background-color: yellow;
     width: 20px;
     height: 20px;
     border-radius: 999px;
@@ -285,6 +285,16 @@ burger-btn.show{
     top: 5px;
     cursor: pointer;
 }
+body.dark .toggleSirkel{
+    background-color: black;
+}
+.toggle-right {
+    animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  
+  .toggle-left {
+    animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
 
 
 /* INDEX*/
@@ -600,5 +610,21 @@ input[type="checkbox"]:checked:after {
     100% {
       transform: translateX(1000px);
       opacity: 0;
+    }
+  }
+  @keyframes slide-right {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(30px);
+    }
+  }
+  @keyframes slide-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-2px);
     }
   }
