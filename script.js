@@ -142,12 +142,12 @@ window.addEventListener("load", () => {
 })
 
 function hentOgLag() {
-    const skrevet = hovedInput.value.trim();
-    if (!skrevet) return;
+    const skrevet = hovedInput.value.trim()
+    if (!skrevet) return
 
-    lagTodoElement(skrevet, false);
-    lagreTilLocalStorage();
-    hovedInput.value = "";
+    lagTodoElement(skrevet, false)
+    lagreTilLocalStorage()
+    hovedInput.value = ""
 
 }
 hovedInput.addEventListener("keydown", (event)=>{
@@ -157,6 +157,10 @@ hovedInput.addEventListener("keydown", (event)=>{
   }
 })
 addNewKnapp.addEventListener("click", () => {
+  const skrevet = hovedInput.value.trim()
+    if(skrevet){
+    hovedInput.blur()
+  }
   hovedInput.value = ""
   hovedInput.focus()
 })
