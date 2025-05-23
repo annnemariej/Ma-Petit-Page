@@ -36,10 +36,10 @@ ul {
     --TxtLightMode: rgb(23, 22, 22);
 
     --colorBg1: white;
-    --colorBg2: orange;
+    --colorBg2: rgb(255, 227, 227);
     --color1: 18, 113, 255;
     --color2: 221, 74, 255;
-    --color3: 100, 220, 255;
+    --color3: 30, 70, 0;
     --color4: 200, 50, 50;
     --color5: 180, 180, 50;
     --colorInteractive: 140, 100, 255;
@@ -321,7 +321,6 @@ body.dark .toggleSirkel{
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: whitesmoke;
     z-index: 9999;
     justify-content: space-evenly;
     overflow: hidden;
@@ -339,17 +338,73 @@ body.dark .toggleSirkel{
     display: none;
 }
 .gradientsContainer h1{
-    color: white;
+    color: black;
     z-index: 99999;
 }
 .g1{
     position: absolute;
-    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
     width: var(--circleSize);
     height: var(--circleSize);
     opacity: 1;
     top: calc(50% - var(--circleSize)/2);
     left: calc(50% - var(--circleSize)/2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: center center;
+    animation: MoveVertical 30s ease infinite;
+}
+.g2{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+    width: var(--circleSize);
+    height: var(--circleSize);
+    opacity: 1;
+    top: calc(50% - var(--circleSize)/2);
+    left: calc(50% - var(--circleSize)/2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% - 400px);
+    animation: MoveInCircle 20s reverse infinite;
+}
+.g3{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+    width: var(--circleSize);
+    height: var(--circleSize);
+    opacity: 1;
+    top: calc(50% - var(--circleSize)/2  + 200px);
+    left: calc(50% - var(--circleSize)/2  - 500px);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% + 400px);
+    animation: MoveInCircle 40s linear infinite;
+}
+.g4{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+    width: var(--circleSize);
+    height: var(--circleSize);
+    opacity: 1;
+    top: calc(50% - var(--circleSize)/2);
+    left: calc(50% - var(--circleSize)/2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% - 200px);
+    animation: MoveHorizontally 40s linear infinite;
+}
+.g5{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+    width: var(--circleSize);
+    height: var(--circleSize);
+    opacity: 1;
+    top: calc(50% - var(--circleSize)*2);
+    left: calc(50% - var(--circleSize)*2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% - 800px) calc(50% + 200px);
+    animation: MoveInCircle 20s ease infinite;
 }
 /* Style for the login box */
 .login-box {
@@ -675,5 +730,38 @@ input[type="checkbox"]:checked:after {
     }
     100% {
       transform: translateX(-2px);
+    }
+  }
+  @keyframes MoveInCircle{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+  }
+  @keyframes MoveVertical{
+    0%{
+        transform: translateY(-50%);
+    }
+    50%{
+        transform: translateY(50%);
+    }
+    100%{
+        transform: translateY(-50%);
+    }
+  }
+  @keyframes MoveHorizontally{
+    0%{
+        transform: translateX(-50%) translateY(-10%);
+    }
+    50%{
+        transform: translateX(50%) translateY(10%);
+    }
+    100%{
+        transform: translateX(-50%) translateY(-10%);
     }
   }
