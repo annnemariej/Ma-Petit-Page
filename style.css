@@ -42,6 +42,7 @@ ul {
     --color3: 255, 141, 70;
     --color4: 0, 13, 255;
     --color5: 116, 253, 255;
+    --color6: 255, 238, 7;
     --colorInteractive: 129, 0, 255;
     --circleSize: 80%;
     --blending: hard-light;
@@ -410,6 +411,19 @@ body.dark .toggleSirkel{
 
     transform-origin: calc(50% - 800px) calc(50% + 200px);
     animation: MoveInCircle 20s ease infinite;
+}
+.g6{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color6), 0.8) 0, rgba(var(--color6), 0) 50%) no-repeat;
+    width: var(--circleSize);
+    height: var(--circleSize);
+    opacity: 1;
+    top: calc(50% - var(--circleSize)/2);
+    left: calc(50% - var(--circleSize)/2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% + 400px);
+    animation: MoveInCircle 20s reverse infinite;
 }
 .interactive{
     position: absolute;
