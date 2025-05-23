@@ -111,6 +111,9 @@ function showLoginOverlay() {
 }
 
 function logout() {
+  dropdown.classList.remove("show")
+  menuopen = false
+  body.style.overflow = "auto"
   localStorage.setItem("loggedIn", "false")
   showLoginOverlay()
 }
