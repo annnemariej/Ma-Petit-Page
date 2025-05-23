@@ -124,9 +124,12 @@ function showMainContent() {
   document.getElementById("login-overlay").style.display = "none"
   document.getElementById("main-content").style.display = "block"
   body.style.overflow = "auto"
+  window.scrollTo(0, 0)
+
 }
 
 function showLoginOverlay() {
+  window.scrollTo(0, 0)
   document.getElementById("login-overlay").style.display = "flex"
   document.getElementById("main-content").style.display = "none"
   document.getElementById("access-code").value = ""
