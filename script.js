@@ -8,6 +8,11 @@ const body = document.querySelector("body")
 const xMark = document.querySelector(".fa-xmark")
 const toggleSirkel = document.querySelector(".toggleSirkel")
 
+let curX = 0
+let curY = 0
+let tgX = 0
+let tgY = 0
+
 //animasjon ved meny knapp
 
 
@@ -115,6 +120,7 @@ function checkAccess() {
 function showMainContent() {
   document.getElementById("login-overlay").style.display = "none"
   document.getElementById("main-content").style.display = "block"
+  body.style.overflow = "auto"
 }
 
 function showLoginOverlay() {
@@ -142,6 +148,25 @@ window.onload = function () {
     showLoginOverlay()
   }
 }
+
+//login screen animasjon
+document.addEventListener('DOMContentLoaded', ()=>{
+  const interBubble = document.querySelector(".interactive")
+  function move(){
+    curX += (tgX - curX) / 20
+    curY += (tgY - curY) / 20
+    interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`
+    requestAnimationFrame(move)
+  }
+
+  window.addEventListener("mousemove", (event) => {
+    tgX = event.clientX
+    tgY = event.clientY
+  })
+
+  move()
+
+})
 
 //todo liste 
 

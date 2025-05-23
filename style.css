@@ -37,12 +37,12 @@ ul {
 
     --colorBg1: white;
     --colorBg2: rgb(255, 227, 227);
-    --color1: 18, 113, 255;
-    --color2: 221, 74, 255;
-    --color3: 30, 70, 0;
-    --color4: 200, 50, 50;
-    --color5: 180, 180, 50;
-    --colorInteractive: 140, 100, 255;
+    --color1: 255, 91, 140;
+    --color2: 158, 83, 255;
+    --color3: 145, 131, 255;
+    --color4: 0, 13, 255;
+    --color5: 116, 253, 255;
+    --colorInteractive: 129, 0, 255;
     --circleSize: 80%;
     --blending: hard-light;
     
@@ -325,13 +325,15 @@ body.dark .toggleSirkel{
     justify-content: space-evenly;
     overflow: hidden;
     background: linear-gradient(40deg, var(--colorBg1), var(--colorBg2));
-}
-.gradientsContainer{
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+.gradientsContainer{
+    width: 100vw;
+    height: 100vh;
+    filter: url(#goo) blur(40px);
+    position: absolute;
     
 }
 #login-overlay svg{
@@ -339,7 +341,7 @@ body.dark .toggleSirkel{
 }
 .gradientsContainer h1{
     color: black;
-    z-index: 99999;
+    z-index: 9999999;
 }
 .g1{
     position: absolute;
@@ -406,6 +408,17 @@ body.dark .toggleSirkel{
     transform-origin: calc(50% - 800px) calc(50% + 200px);
     animation: MoveInCircle 20s ease infinite;
 }
+.interactive{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--colorInteractive), 0.8) 0, rgba(var(--colorInteractive), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+    width: 100%;
+    height: 100%;
+    top: -50%;
+    left: -50%;
+    opacity: 1;
+    pointer-events: none;
+}
 /* Style for the login box */
 .login-box {
     background: white;
@@ -419,6 +432,7 @@ body.dark .toggleSirkel{
     width: 400px;
     height: 80%;
     z-index: 999999;
+    filter: none;
 
 }
 .login-box h2{
