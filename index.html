@@ -43,12 +43,17 @@
       <h1>Keep a track of your <span>life</span>.</h1>
     </div>
     <div class="login-box">
-      <h2>Create Account</h2>
-      <input type="text" id="username" placeholder="Brukernavn">
-      <input type="password" id="access-code" placeholder="Passord" />
-      <button onclick="checkAccess();bruker()">Enter</button>
-      <p id="error-message"></p>
-      <img src="https://art4d.com/wp-content/uploads/2025/03/1-9.jpg" alt="">
+      <div>
+        <h2>Create Account</h2>
+        <input type="text" id="username" placeholder="Brukernavn">
+        <input type="password" id="access-code" placeholder="Passord" />
+        <button onclick="checkAccess();bruker()">
+          Log In
+          <div class="btnOutline"></div>
+        </button>
+        <p id="error-message"></p>
+      </div>
+      <img src="Bilder/MppLogo.png" alt="">
     </div>
   </div>
   <div id="main-content" style="display: none;">
@@ -106,9 +111,7 @@
             <div id="addnewtodo">
                 <input type="text" placeholder="Legg til ny TODO" id="maininput">
                 <button id="addnew" onclick="hentOgLag()">
-                  <div class="btnOutline">  
-                    
-                  </div>
+                  <div class="btnOutline"></div>
                   <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
