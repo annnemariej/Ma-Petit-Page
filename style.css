@@ -323,6 +323,7 @@ burger-btn.show{
     border-radius: 20px;
     padding: 30px;
     opacity: 0;
+    overflow: hidden;
 }
 
 #addnewtodo {
@@ -335,7 +336,6 @@ burger-btn.show{
 #addnewtodo input {
     width: 89%;
     font-size: 25px;
-    text-align: center;
     border-radius: 10px;
     border: transparent;
     font-family: "Quicksand";
@@ -361,18 +361,19 @@ burger-btn.show{
     border-radius: 10px;
     align-items: center;
     padding: 5px;
+    box-shadow: 4px 4px 4px rgb(181, 181, 181) inset, -3px -3px 3px rgb(248, 248, 248) inset;
 
 }
 
 .newtodo input {
     color: black;
-    background-color: whitesmoke;
+    background-color: white;
     width: 30px;
     height: 30px;
     border: 0.5px black solid;
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     cursor: pointer;
-
+    box-shadow: 2px 2px 2px rgb(181, 181, 181) , -2px -2px 2px white;
 }
 
 .newtodo .tekst {
@@ -549,6 +550,16 @@ input[type="checkbox"]:checked:after {
     }
     100% {
       transform: translateX(-1000px) rotate(-540deg);
+      opacity: 0;
+    }
+  }
+  @keyframes slide-out-left {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-1000px);
       opacity: 0;
     }
   }

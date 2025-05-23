@@ -173,9 +173,14 @@ function lagTodoElement(tekst, ferdig) {
     divelm.appendChild(trashElm)
 
     trashElm.addEventListener("click", () => {
-        divelm.remove()
-        lagreTilLocalStorage()
-    });
+
+        divelm.style.animation = "slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both"
+
+        divelm.addEventListener("animationend", () => {
+          divelm.remove()
+          lagreTilLocalStorage()
+        }, { once: true })
+    })
 }
 
 function lagreTilLocalStorage() {
