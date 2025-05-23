@@ -473,6 +473,7 @@ body.dark .toggleSirkel{
     position: absolute;
     top: 0;
     left: 0;
+    animation: morph 4s linear infinite;
 
 }
 
