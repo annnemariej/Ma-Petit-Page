@@ -69,7 +69,7 @@ function darkModeLightMode() {
   } else {
     toggleSirkel.classList.remove("toggle-right")
     toggleSirkel.classList.add("toggle-left")
-    
+
     console.log("det er lightmode")
     light = true
     localStorage.setItem("light", true)
@@ -122,6 +122,7 @@ function showLoginOverlay() {
   document.getElementById("main-content").style.display = "none"
   document.getElementById("access-code").value = ""
   document.getElementById("error-message").textContent = ""
+  body.style.overflow = "hidden"
 }
 
 function logout() {

@@ -34,6 +34,18 @@ ul {
 :root{
     --BGLightMode: rgb(247, 242, 236);
     --TxtLightMode: rgb(23, 22, 22);
+
+    --colorBg1: white;
+    --colorBg2: orange;
+    --color1: 18, 113, 255;
+    --color2: 221, 74, 255;
+    --color3: 100, 220, 255;
+    --color4: 200, 50, 50;
+    --color5: 180, 180, 50;
+    --colorInteractive: 140, 100, 255;
+    --circleSize: 80%;
+    --blending: hard-light;
+    
 }
 
 body {
@@ -304,30 +316,67 @@ body.dark .toggleSirkel{
 
 
 #login-overlay {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: whitesmoke;
+    z-index: 9999;
+    justify-content: space-evenly;
+    overflow: hidden;
+    background: linear-gradient(40deg, var(--colorBg1), var(--colorBg2));
+}
+.gradientsContainer{
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    z-index: 9999;
+    
 }
-
+#login-overlay svg{
+    display: none;
+}
+.gradientsContainer h1{
+    color: white;
+    z-index: 99999;
+}
+.g1{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+    width: var(--circleSize);
+    height: var(--circleSize);
+    opacity: 1;
+    top: calc(50% - var(--circleSize)/2);
+    left: calc(50% - var(--circleSize)/2);
+}
 /* Style for the login box */
 .login-box {
     background: white;
-    padding: 20px 30px;
+    padding: 40px 30px;
     border-radius: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 80%;
+    z-index: 999999;
+
+}
+.login-box h2{
+    font-weight: 900;
+} 
+.login-box img{
+    width: 80%;
 }
 
 .login-box input {
     padding: 10px;
     margin: 10px 0;
-    width: 100%;
+    width: 80%;
 }
 
 .login-box button {
@@ -392,7 +441,6 @@ body.dark .toggleSirkel{
     border-radius: 10px;
     align-items: center;
     padding: 5px;
-    box-shadow: 4px 4px 4px rgb(181, 181, 181) inset, -3px -3px 3px rgb(248, 248, 248) inset;
 
 }
 
@@ -404,7 +452,6 @@ body.dark .toggleSirkel{
     border: 0.5px black solid;
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     cursor: pointer;
-    box-shadow: 2px 2px 2px rgb(181, 181, 181) , -2px -2px 2px white;
 }
 
 .newtodo .tekst {
