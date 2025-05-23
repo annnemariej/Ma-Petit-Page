@@ -35,6 +35,7 @@ burger.addEventListener("click", () =>{
   xMark.classList.toggle("show", menuopen)
   if(menuopen){
     body.style.overflow = "hidden"
+    dropdown.style.animation = "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both"
   }else{
     body.style.overflow = "auto"
   }
