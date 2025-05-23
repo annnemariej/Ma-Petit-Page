@@ -425,7 +425,7 @@ body.dark .toggleSirkel{
 .login-box {
     background: white;
     padding: 40px 30px;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
