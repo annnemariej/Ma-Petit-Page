@@ -112,7 +112,9 @@ function checkAccess() {
   if (validPattern.test(code)) {
     localStorage.setItem("loggedIn", "true")
     showMainContent()
-  } else {
+  }else if(codeInput.value === ""){
+    errorMsg.textContent = "Du må skrive inn et passord"
+  }else {
     errorMsg.textContent = "Minst 6 bokstaver, 1 stor bokstav og ett tall"
   }
   codeInput.value = ""
