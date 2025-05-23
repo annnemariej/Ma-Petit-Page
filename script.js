@@ -153,7 +153,12 @@ function hentOgLag() {
 hovedInput.addEventListener("keydown", (event)=>{
   if(event.key === "Enter"){
     hentOgLag()
+    hovedInput.blur()
   }
+})
+addNewKnapp.addEventListener("click", () => {
+  hovedInput.value = ""
+  hovedInput.focus()
 })
 
 
@@ -177,7 +182,7 @@ function lagTodoElement(tekst, ferdig) {
     inputelm.addEventListener("change", () => {
         tekstelm.classList.toggle("ferdig", inputelm.checked)
         lagreTilLocalStorage()
-    });
+    })
 
     const trashElm = document.createElement("button")
     trashElm.className = "trash"
