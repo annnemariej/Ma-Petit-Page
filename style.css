@@ -319,6 +319,7 @@ body.dark .toggleSirkel{
 
 
 
+
 /* INDEX*/
 
 
@@ -519,7 +520,7 @@ body.dark .toggleSirkel{
     gap: 15px;
     background-color: white;
     border-radius: 20px;
-    padding: 30px;
+    padding: 0 30px 30px 30px;
     overflow: hidden;
     overflow-y: scroll
 }
