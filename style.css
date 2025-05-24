@@ -86,12 +86,7 @@ section{
 .sec_2{
     background-color: white;
 }
-.sec_3.showAnimation #todocontainer{
-    animation: roll-in-left 0.6s ease-out both;
-}
-.sec_3.showExitAnimation #todocontainer{
-    animation: roll-out-left 0.6s ease-in both;
-}
+
 
 #velkommen{
     grid-row: 2/5;
@@ -247,7 +242,6 @@ nav {
     font-size: 80px;
     text-transform: uppercase;
     animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    z-index: 100;
 }
 
 .dropdown-content button{
@@ -259,6 +253,7 @@ nav {
     user-select: none;
     font-family: "Quicksand", sans-serif;
     cursor: pointer;
+    z-index: 1000;
 }
 .dropdown-content button:hover{
     animation: vibrate-1 0.3s linear infinite both;
@@ -270,6 +265,7 @@ nav {
     color: var(--BGLightMode);
     text-decoration: none;
     user-select: none;
+    z-index: 1005;
 
 }
 .dropdown-content.show {
@@ -642,7 +638,6 @@ main .g9{
     background-color: white;
     border-radius: 20px;
     padding: 30px;
-    opacity: 0;
     overflow: hidden;
     overflow-y: scroll
 }
