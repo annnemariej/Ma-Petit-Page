@@ -345,6 +345,7 @@ body.dark .toggleSirkel{
     color: black;
     z-index: 99999999;
     user-select: none;
+    cursor: none;
 }
 #tekst span{
   color: rgb(255, 174, 0);
