@@ -8,6 +8,7 @@ const body = document.querySelector("body")
 const xMark = document.querySelector(".fa-xmark")
 const toggleSirkel = document.querySelector(".toggleSirkel")
 const codeInput = document.getElementById("access-code")
+let logo = document.querySelector("#logo a img")
 
 let curX = 0
 let curY = 0
@@ -63,6 +64,7 @@ burger.addEventListener("click", () => {
 // Darkmode
 let light = localStorage.getItem("light") === "true"
 document.body.classList.add(light ? "light" : "dark")
+logo.src = light ? "Bilder/MppLogo.png" : "Bilder/MppLogoDM.png"
 
 function resetAnimation(el) {
   el.style.animation = 'none'
@@ -81,6 +83,8 @@ function darkModeLightMode() {
     localStorage.setItem("light", false)
     document.body.classList.remove("light")
     document.body.classList.add("dark")
+    logo.src = "Bilder/MppLogoDM.png"
+
   } else {
     toggleSirkel.classList.remove("toggle-right")
     toggleSirkel.classList.add("toggle-left")
@@ -90,6 +94,7 @@ function darkModeLightMode() {
     localStorage.setItem("light", true)
     document.body.classList.remove("dark")
     document.body.classList.add("light")
+    logo.src = "Bilder/MppLogo.png"
   }
 }
 

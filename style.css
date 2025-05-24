@@ -32,8 +32,11 @@ ul {
     font-weight: normal;
 }
 :root{
-    --BGLightMode: #f7f2ec;
+    --BGLightMode: white;
     --TxtLightMode: rgb(23, 22, 22);
+
+    --BGDarkMode: black;
+    --TxtDarkMode:white;
 
     --colorBg1: white;
     --colorBg2: var(--BGLightMode);
@@ -71,7 +74,6 @@ section{
     grid-template-rows: repeat(14, 58.5px); 
 }
 .sec_1{
-  background-color: white;
   overflow: hidden;
 }
 .sec_1 .gradientsContainer{
@@ -99,7 +101,6 @@ section{
 
 #velkommen h1 {
     font-size: 80px;
-    color: var(--TxtLightMode);
     font-family: "Borel";
     font-weight: 500;
     height: 110px;
@@ -159,6 +160,8 @@ nav {
 
 #logo img {
     height: 3vh;
+    width: 145px;
+    object-fit: contain;
 }
 #logo:hover{
     animation: vibrate-1 0.3s linear infinite both;
@@ -511,7 +514,7 @@ body.dark .toggleSirkel{
 /*TODO LISTE*/
 #todocontainer {
     grid-column: 2 / 9;
-    grid-row: 2 / 12;
+    grid-row: 4 / 14;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -659,6 +662,15 @@ input[type="checkbox"]:checked:after {
 
 
 /* QUIZ*/
+body.dark{
+  background-color: black;
+  color: white;
+}
+#velkommen.dark{
+  color: white;
+}
+
+/*DARKMODE*/
 
 /*ANIMASJONER*/
 @keyframes vibrate-1 {
