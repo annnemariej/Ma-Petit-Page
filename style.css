@@ -620,8 +620,16 @@ input[type="checkbox"]:checked:after {
     color: #aaa;
     opacity: 0.6;
 }
-.tomt.gjem .tomt{
-
+.tomt{
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  color: #626262;
+}
+.tomt i{
+  font-size: 100px;
 }
 
 
