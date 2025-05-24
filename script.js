@@ -9,6 +9,7 @@ const xMark = document.querySelector(".fa-xmark")
 const toggleSirkel = document.querySelector(".toggleSirkel")
 const codeInput = document.getElementById("access-code")
 let logo = document.querySelector("#logo a img")
+let tomt = document.querySelector(".tomt")
 
 let curX = 0
 let curY = 0
@@ -209,6 +210,7 @@ window.addEventListener("load", () => {
     lagredeTodos.forEach(todo => {
         lagTodoElement(todo.tekst, todo.ferdig)
     })
+    oppdaterTomtSynlighet()
 })
 
 function hentOgLag() {
@@ -270,8 +272,14 @@ function lagTodoElement(tekst, ferdig) {
         divelm.addEventListener("animationend", () => {
           divelm.remove()
           lagreTilLocalStorage()
+          oppdaterTomtSynlighet()
         }, { once: true })
     })
+    oppdaterTomtSynlighet()
+}
+function oppdaterTomtSynlighet() {
+  const harTodos = containerElm.querySelectorAll(".newtodo").length > 0
+  tomt.style.display = harTodos ? "none" : "flex"
 }
 
 function lagreTilLocalStorage() {

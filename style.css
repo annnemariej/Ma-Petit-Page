@@ -620,6 +620,9 @@ input[type="checkbox"]:checked:after {
     color: #aaa;
     opacity: 0.6;
 }
+.tomt.gjem .tomt{
+
+}
 
 
 
@@ -650,6 +653,10 @@ input[type="checkbox"]:checked:after {
 
 
 /* QUIZ*/
+
+
+
+/*DARKMODE*/
 body.dark{
   background-color: black;
   color: white;
@@ -669,9 +676,6 @@ body.dark .login-box .btnOutline{
 body.dark .login-box{
   color: black;
 }
-
-
-/*DARKMODE*/
 
 /*ANIMASJONER*/
 @keyframes vibrate-1 {
