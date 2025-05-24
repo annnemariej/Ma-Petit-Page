@@ -476,12 +476,12 @@ body.dark .toggleSirkel{
     border: 1px solid black;
     border-radius: 70% 30% 40% 60% / 40% 70% 30% 60%;
     font-family: "Quicksand", sans-serif;
-    width: 80px;
+    width: 100px;
     height: 50px;
     position: relative;
 }
 .login-box .btnOutline{
-    width: 80px;
+    width: 90px;
     height: 50px;
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     border: 1px solid black;
