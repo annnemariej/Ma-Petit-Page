@@ -685,7 +685,8 @@ main .g9{
 
 }
 
-.newtodo input {
+.newtodo input{
+  position: relative;
     color: black;
     background-color: whitesmoke;
     width: 30px;
@@ -693,6 +694,11 @@ main .g9{
     border: 0.5px black solid;
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     cursor: pointer;
+    animation: morph 4s linear infinite;
+}
+.newtodo:nth-of-type(2n) input{
+  border-radius: 40% 60% 70% 30% / 60% 40% 30% 60%;
+  animation: morph2 3s linear infinite;
 }
 
 .newtodo .tekst {
@@ -716,6 +722,7 @@ main .g9{
     border: 0.5px solid black;
     top: 0;
     right: 0;
+    animation: morph 4s linear infinite;
 }
 
 
@@ -817,18 +824,31 @@ input[type="checkbox"]:checked:after {
     100%{
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     }
-    @keyframes focus-in-contract {
-        0% {
-          letter-spacing: 1em;
-          filter: blur(12px);
-          opacity: 0;
-        }
-        100% {
-          filter: blur(0px);
-          opacity: 1;
-        }
-      }
+    
   }
+  @keyframes morph2{
+    0%{
+      border-radius: 40% 60% 70% 30% / 60% 40% 30% 60%;
+    }
+    50%{
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    100%{
+      border-radius: 40% 60% 70% 30% / 60% 40% 30% 60%;
+    }
+  }
+  @keyframes focus-in-contract {
+    0% {
+      letter-spacing: 1em;
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
   @keyframes jello-horizontal {
     0% {
       transform: scale3d(1, 1, 1);
