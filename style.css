@@ -346,6 +346,9 @@ body.dark .toggleSirkel{
     z-index: 99999999;
     user-select: none;
 }
+#tekst span{
+  color: rgb(255, 174, 0);
+}
 .g1{
     position: absolute;
     background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
