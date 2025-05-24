@@ -341,7 +341,7 @@ body.dark .toggleSirkel{
 #login-overlay svg{
     display: none;
 }
-#login-overlay h1{
+#login-overlay #tekst{
     color: black;
     z-index: 99999999;
     user-select: none;
