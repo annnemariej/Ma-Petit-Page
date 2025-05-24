@@ -341,10 +341,9 @@ body.dark .toggleSirkel{
 #login-overlay svg{
     display: none;
 }
-.gradientsContainer h1{
+#login-overlay h1{
     color: black;
     z-index: 99999999;
-    position: absolute;
     user-select: none;
 }
 .g1{
