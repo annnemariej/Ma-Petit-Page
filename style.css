@@ -684,7 +684,36 @@ body.dark .login-box .btnOutline{
 body.dark .login-box{
   color: black;
 }
+body.dark #todocontainer{
+  background-color: black;
+}
+body.dark #addnewtodo{
+  background-color: black;
+}
+body.dark #addnewtodo input{
+  background-color: black;
+  color: white;
+}
+body.dark #addnewtodo button{
+  background-color: black;
+  color: white;
+  border: 0.5px solid white;
+}
+body.dark .newtodo{
+  background-color: rgb(35, 35, 35);
+}
+body.dark .newtodo input{
+  background-color: rgb(35, 35, 35);
+  border: 0.5px solid white;
 
+}
+body.dark .newtodo button{
+  color: white;
+  background-color:rgb(35, 35, 35);
+}
+body.dark #addnewtodo .btnOutline{
+  border: 0.5px solid white;
+}
 /*ANIMASJONER*/
 @keyframes vibrate-1 {
     0% {

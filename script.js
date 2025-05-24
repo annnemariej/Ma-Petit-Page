@@ -279,7 +279,11 @@ function lagTodoElement(tekst, ferdig) {
 }
 function oppdaterTomtSynlighet() {
   const harTodos = containerElm.querySelectorAll(".newtodo").length > 0
-  tomt.style.display = harTodos ? "none" : "flex"
+  if(harTodos){
+    tomt.style.display = "none"
+  }else{
+    tomt.style.display = "flex"
+  }
 }
 
 function lagreTilLocalStorage() {
