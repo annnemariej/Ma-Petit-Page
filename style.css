@@ -32,7 +32,7 @@ ul {
     font-weight: normal;
 }
 :root{
-    --BGLightMode: rgb(247, 242, 236);
+    --BGLightMode: #f7f2ec;
     --TxtLightMode: rgb(23, 22, 22);
 
     --colorBg1: white;
@@ -43,15 +43,19 @@ ul {
     --color4: 0, 13, 255;
     --color5: 116, 253, 255;
     --color6: 255, 177, 8;
+    --color7: 106, 193, 255;
+    --color8: 174, 107, 255;
+    --color9: 255, 69, 100;
     --colorInteractive: 129, 0, 255;
-    --circleSize: 80%;
+    --circleSize: 100%;
+    --circleSizeMain: 90%;
     --blending: hard-light;
     
 }
 
 body {
     height: 200vh;
-    background-color: var(--BGLightMode);
+    background-color: white;
 }
 
 main {
@@ -66,13 +70,17 @@ section{
     grid-template-columns: repeat(12, 1fr);  
     grid-template-rows: repeat(14, 58.5px); 
 }
+.sec_1{
+  background-color: white;
+  overflow: hidden;
+}
+.sec_1 .gradientsContainer{
+  cursor: auto;
+  overflow: hidden;
+}
 .sec_1.showAnimation #velkommen{
     animation-duration: 1s;
     animation-name: slide-in;
-}
-.sec_2 svg{
-    grid-column: 1/13;
-    grid-row: 1/2;
 }
 
 .sec_2{
@@ -91,6 +99,7 @@ section{
     display: flex;
     flex-direction: column;
     user-select: none;
+    z-index: 5;
 }
 
 #velkommen h1 {
@@ -238,6 +247,7 @@ nav {
     font-size: 80px;
     text-transform: uppercase;
     animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    z-index: 100;
 }
 
 .dropdown-content button{
@@ -310,6 +320,125 @@ body.dark .toggleSirkel{
   .toggle-left {
     animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
+
+
+main .g1{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+    width: var(--circleSizeMain);
+    height: var(--circleSizeMain);
+    opacity: 1;
+    top: calc(50% - var(--circleSizeMain)/2);
+    left: calc(50% - var(--circleSizeMain)/2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: center center;
+    animation: MoveVertical 30s ease infinite;
+}
+main .g2{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+    width: var(--circleSizeMain);
+    height: var(--circleSizeMain);
+    opacity: 1;
+    top: calc(50% - var(--circleSizeMain)/2);
+    left: calc(50% - var(--circleSizeMain)/2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% - 400px);
+    animation: MoveInCircle 20s reverse infinite;
+}
+main .g3{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+    width: var(--circleSizeMain);
+    height: var(--circleSizeMain);
+    opacity: 1;
+    top: calc(50% - var(--circleSizeMain)/2  + 200px);
+    left: calc(50% - var(--circleSizeMain)/2  - 500px);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% + 400px);
+    animation: MoveInCircle 40s linear infinite;
+}
+main .g4{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+    width: calc(var(--circleSize)/2);
+    height:calc(var(--circleSize)/2);
+    opacity: 1;
+    top: calc(50% - var(--circleSizeMain)/2);
+    left: calc(50% - var(--circleSizeMain)/2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% - 200px);
+    animation: MoveHorizontally 40s linear infinite;
+}
+main .g5{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+    width: var(--circleSizeMain);
+    height: var(--circleSizeMain);
+    opacity: 1;
+    top: calc(50% - var(--circleSizeMain)*2);
+    left: calc(50% - var(--circleSizeMain)*2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% - 800px) calc(50% + 200px);
+    animation: MoveInCircle 20s ease infinite;
+}
+main .g6{
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color6), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+    width: var(--circleSizeMain);
+    height: var(--circleSizeMain);
+    opacity: 1;
+    top: calc(50% - var(--circleSizeMain)/2);
+    left: calc(50% - var(--circleSizeMain)/2);
+    mix-blend-mode: var(--blending);
+
+    transform-origin: calc(50% + 400px);
+    animation: MoveInCircle 20s reverse infinite;
+}
+main .g7{
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color7), 0.8) 0, rgba(var(--color7), 0) 50%) no-repeat;
+  width: var(--circleSizeMain);
+  height: var(--circleSizeMain);
+  opacity: 1;
+  top: calc(50% - var(--circleSizeMain)/2);
+  left: calc(50% - var(--circleSizeMain)/2);
+  mix-blend-mode: var(--blending);
+
+  transform-origin: calc(50% + 200px);
+  animation: MoveInCircle 60s ease infinite;
+}
+main .g8{
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color8), 0.8) 0, rgba(var(--color8), 0) 50%) no-repeat;
+  width: calc(var(--circleSize)/2);
+  height:calc(var(--circleSize)/2);
+  opacity: 1;
+  top: calc(50% - var(--circleSizeMain)/2);
+  left: calc(50% - var(--circleSizeMain)/2);
+  mix-blend-mode: var(--blending);
+
+  transform-origin: calc(50% + 300px);
+  animation: MoveVertically 20s ease infinite;
+}
+main .g9{
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color9), 0.8) 0, rgba(var(--color9), 0) 50%) no-repeat;
+  width: var(--circleSizeMain);
+  height: var(--circleSizeMain);
+  opacity: 1;
+  top: calc(50% - var(--circleSizeMain)/2);
+  left: calc(50% - var(--circleSizeMain)/2);
+  mix-blend-mode: var(--blending);
+
+  transform-origin: center center;
+  animation: MoveHorizontally 20s linear infinite;
+}
 
 
 /* INDEX*/
