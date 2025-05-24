@@ -35,18 +35,27 @@ window.onscroll = () =>{
 }
 
 //menyknapp
-burger.addEventListener("click", () =>{
-  menuopen = !menuopen;
-  dropdown.classList.toggle("show", menuopen)
-  burger.classList.toggle("show", menuopen)
-  xMark.classList.toggle("show", menuopen)
-  if(menuopen){
-    body.style.overflow = "hidden"
-    dropdown.style.animation = "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both"
-  }else{
-    body.style.overflow = "auto"
-  }
+burger.addEventListener("click", () => {
+  menuopen = !menuopen
 
+  if (menuopen) {
+    dropdown.classList.add("show")
+    burger.classList.add("show")
+    xMark.classList.add("show")
+
+    dropdown.style.animation = "slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both";
+    body.style.overflow = "hidden"
+  } else {
+    dropdown.style.animation = "slide-out-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both"
+    body.style.overflow = "auto"
+
+    // Wait for the animation to finish before removing the 'show' class
+    setTimeout(() => {
+      dropdown.classList.remove("show")
+      burger.classList.remove("show")
+      xMark.classList.remove("show")
+    }, 500)
+  }
 })
 
 

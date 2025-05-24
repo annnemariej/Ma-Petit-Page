@@ -241,7 +241,6 @@ nav {
     align-items: center;
     font-size: 80px;
     text-transform: uppercase;
-    animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .dropdown-content button{
@@ -772,16 +771,6 @@ input[type="checkbox"]:checked:after {
     }
     100% {
       transform: translateX(-1000px) rotate(-540deg);
-      opacity: 0;
-    }
-  }
-  @keyframes slide-out-left {
-    0% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-1000px);
       opacity: 0;
     }
   }
