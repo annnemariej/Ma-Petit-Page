@@ -312,7 +312,7 @@ fetch(`https://gnews.io/api/v4/top-headlines?topic=technology&lang=no&max=10&tok
     nyhet.innerHTML = ''
     data.articles.forEach(article => {
       const card = document.createElement('div')
-      card.className = 'news-card'
+      card.className = 'nyhetcard'
       card.innerHTML = `
             <img src="${article.image || ''}" alt="Bilde">
             <h3>${article.title}</h3>
@@ -326,5 +326,16 @@ fetch(`https://gnews.io/api/v4/top-headlines?topic=technology&lang=no&max=10&tok
     console.error(err)
     nyhet.innerHTML = '<p>Kunne ikke hente nyheter.</p>'
   });
+
+const nextKnapp = document.getElementById('nextKnapp');
+const prevKnapp = document.getElementById('prevKnapp');
+
+nextKnapp.addEventListener('click', () => {
+  nyhet.scrollBy({ left: 320, behavior: 'smooth' })
+});
+
+prevKnapp.addEventListener('click', () => {
+  nyhet.scrollBy({ left: -320, behavior: 'smooth' })
+});
 
 
