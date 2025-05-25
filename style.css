@@ -733,6 +733,11 @@ input[type="checkbox"]:checked:after {
   width: 300px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  position: relative;
+  height: 450px;
+}
+.nyhetcard:hover{
+  top: -30px;
 }
 
 .nyhetcard img {
@@ -743,20 +748,22 @@ input[type="checkbox"]:checked:after {
 
 .nyhetcard h3 {
   font-size: 16px;
-  margin: 10px;
+  margin: 30px;
 }
 
 .nyhetcard p {
   font-size: 14px;
   color: #ccc;
-  margin: 10px;
+  margin: 30px;
 }
 
 .nyhetcard a {
   display: block;
-  margin: 10px;
+  margin: 30px;
   color: #4EA8DE;
   text-decoration: none;
+  position: absolute;
+    bottom: 0px;
 }
 
 .navKnapp {
@@ -771,6 +778,10 @@ input[type="checkbox"]:checked:after {
   padding: 10px;
   border-radius: 50%;
   z-index: 1;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
 #prevKnapp {
