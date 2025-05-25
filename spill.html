@@ -1,41 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spill</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hjem</title> <!--Klarer å bytte på engelsk?-->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
-<body class="spill">
-    <div id="main-content">
-        <nav>
-          <div id="logo">Ma Petit Page</div>
-          <div id="bruker">
-            <div class="brukernavn">Navn</div>
-            <i class="fa-solid fa-user"></i>
-          </div>
-    
-          <div id="burger">
-            <button id="burger-btn">
-              <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="dropdown-content" id="dropdown-content">
-              <button onclick="darkModeLightMode()">Darkmode</button>
-              <a href="index.html">Hjem</a>
-              <a href="spill.html">Spill</a>
-              <a href="bruker.html">Bruker</a>
-              <!-- <a href="#">Garderobe?</a>-->
-    
-              <button onclick="logout()">Logout</button>
-            </div>
-          </div>
-     
-        </nav>
-        <main>
-    
-        </main>
+
+<body class="index">
+  <div id="login-overlay" style="display: none;">
+    <div class="gradientsContainer">
+      <svg xmlns = "http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"/>
+            <feBlend in="SourceGraphic" in2="goo"/>
+          </filter>
+        </defs>
+      </svg>
+      <div class="g1">
+
       </div>
-    <script src="script.js"></script>
+      <div class="g2">
+
+      </div>
+      <div class="g3">
+
+      </div>
+      <div class="g4">
+
+      </div>
+      <div class="g5">
+
+      </div>
+      <div class="g6">
+
+      </div>
+      <div class="interactive"></div>
+    </div>
+    <div id="tekst">
+      <h1>Keep a track of your <span>life</span>.</h1>
+    </div>
+    <div class="login-box">
+      <div>
+        <h2>Create Account</h2>
+        <input type="text" id="username" placeholder="Brukernavn">
+        <input type="password" id="access-code" placeholder="Passord" />
+        <button onclick="checkAccess();bruker()">
+          Log In
+          <div class="btnOutline"></div>
+        </button>
+        <p id="error-message"></p>
+      </div>
+      <img src="Bilder/MppLogo.png" alt="">
+    </div>
+  </div>
+  <div id="main-content" style="display: none;">
+    <nav>
+      <div class="venstre">
+        <div id="logo">
+          <a href="index.html">
+            <img src="Bilder/MppLogo.png" alt="">
+          </a>
+        </div>
+        <button id="darkModeLightMode">
+          <div class="toggleSirkel" onclick="darkModeLightMode()">
+
+          </div>
+        </button>
+      </div>
+
+      <div class="høyre">
+        <div id="bruker">
+          <div class="brukernavn">Navn</div>
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div id="burger">
+          <button id="burger-btn">
+            <div class="btnOutline btnOutline1"></div>
+            <div class="btnOutline btnOutline2"></div>
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="index.html">Hjem</a>
+            <!-- <a href="#">Garderobe?</a>-->
+            <button onclick="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+
+    <main>
+      <section class="sec_1 showAnimation">
+        <div class="gradientsContainer">
+          <svg xmlns = "http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"/>
+                <feBlend in="SourceGraphic" in2="goo"/>
+              </filter>
+            </defs>
+          </svg>
+          <div class="g1">
+    
+          </div>
+          <div class="g2">
+    
+          </div>
+          <div class="g3">
+    
+          </div>
+          <div class="g4">
+    
+          </div>
+          <div class="g5">
+    
+          </div>
+          <div class="g6">
+    
+          </div>
+
+        </div>
+      </section>
+      <section class="sec_2">
+      </section>
+      <section class="sec_3">
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
