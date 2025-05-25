@@ -755,7 +755,7 @@ input[type="checkbox"]:checked:after {
 .nyhetcard a {
   display: block;
   margin: 10px;
-  color: #1e90ff;
+  color: #4EA8DE;
   text-decoration: none;
 }
 
@@ -877,6 +877,10 @@ body.dark #addnewtodo .btnOutline {
   border: 0.5px solid var(--GreyTextDarkMode);
 }
 
+body.dark .nyhetcard {
+  background-color: var(--TodoContainerDM);
+  box-shadow: 0 4px 10px rgba(255, 255, 255,0.1)
+}
 /*ANIMASJONER*/
 @keyframes vibrate-1 {
   0% {
