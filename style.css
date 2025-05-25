@@ -549,7 +549,6 @@ body.dark .toggleSirkel {
 .nyheter {
   grid-column: 1/13;
   grid-row: 6/15;
-  border: 1px solid var(--errorMessage);
   z-index: 10000;
 }
 
