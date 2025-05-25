@@ -758,9 +758,7 @@ input[type="checkbox"]:checked:after {
   margin: 30px;
 }
 
-button {
-  color: currentColor;
-}
+
 
 .button {
   display: block;
@@ -778,7 +776,9 @@ button {
 @media (hover: hover) {
   .button.button--stroke:hover {
     color: white;
-    text-decoration: none;
+  }
+  body.dark   .button.button--stroke:hover {
+    color: black;
   }
 }
 
@@ -966,6 +966,22 @@ body.dark #addnewtodo .btnOutline {
 body.dark .nyhetcard {
   background-color: var(--TodoContainerDM);
   box-shadow: 0 4px 10px rgba(255, 255, 255,0.1)
+}
+body.dark .button {
+  color: white;
+  border: 2px solid white;
+}
+
+body.dark .button--stroke:after {
+  border: 1px solid white;
+}
+body.dark .button__flair {
+  background-color: white;
+}
+
+body.dark .button__flair:before {
+  background-color: white;
+
 }
 /*ANIMASJONER*/
 @keyframes vibrate-1 {
