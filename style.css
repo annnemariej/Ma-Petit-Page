@@ -652,6 +652,78 @@ input[type="checkbox"]:checked:after {
 }
 
 
+/*NYHETER SKJERM*/
+
+    .nyhContainer {
+      max-width: 1200px;
+      margin: 30px auto;
+      position: relative;
+      padding: 0 40px;
+    }
+
+    .nyhet {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding-bottom: 20px;
+    }
+
+    .nyhet::-webkit-scrollbar {
+      display: none;
+    }
+
+    .news-card {
+      flex: 0 0 auto;
+      background: #222;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      overflow: hidden;
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .news-card h3 {
+      font-size: 16px;
+      margin: 10px;
+    }
+
+    .news-card p {
+      font-size: 14px;
+      color: #ccc;
+      margin: 10px;
+    }
+
+    .news-card a {
+      display: block;
+      margin: 10px;
+      color: #1e90ff;
+      text-decoration: none;
+    }
+
+    .navKnapp {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    #prevKnapp { left: 0; }
+    #nextKnapp { right: 0; }
+
+
 
 /* GBRUKER*/
 

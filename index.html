@@ -13,12 +13,12 @@
 <body class="index">
   <div id="login-overlay" style="display: none;">
     <div class="gradientsContainer">
-      <svg xmlns = "http://www.w3.org/2000/svg">
+      <svg xmlns="http://www.w3.org/2000/svg">
         <defs>
           <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"/>
-            <feBlend in="SourceGraphic" in2="goo"/>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
           </filter>
         </defs>
       </svg>
@@ -100,62 +100,70 @@
     <main>
       <section class="sec_1 showAnimation">
         <div class="gradientsContainer">
-          <svg xmlns = "http://www.w3.org/2000/svg">
+          <svg xmlns="http://www.w3.org/2000/svg">
             <defs>
               <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"/>
-                <feBlend in="SourceGraphic" in2="goo"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                  result="goo" />
+                <feBlend in="SourceGraphic" in2="goo" />
               </filter>
             </defs>
           </svg>
           <div class="g1">
-    
+
           </div>
           <div class="g2">
-    
+
           </div>
           <div class="g3">
-    
+
           </div>
           <div class="g4">
-    
+
           </div>
           <div class="g5">
-    
+
           </div>
           <div class="g6">
-    
+
           </div>
 
         </div>
         <div id="velkommen">
           <h1>Velkommen,</h1>
           <div class="brukernavn">navn</div>
-      </div>
-      <div class="nyheter">
+        </div>
+        <div class="nyheter">
+          <div class="nyhContainer">
+            <button class="navKnapp" id="prevKnapp">&#10094;</button>
+            <div class="nyhet" id="nyhet">
+              <p>Laster inn nyheter...</p>
+            </div>
+            <button class="navKnapp" id="nextKnapp">&#10095;</button>
+          </div>
 
-      </div>
+        </div>
       </section>
       <section class="sec_2">
       </section>
       <section class="sec_3">
-          <div id="todocontainer">
-            <div id="addnewtodo">
-                <input type="text" placeholder="Legg til ny TODO" id="maininput">
-                <button id="addnew" onclick="hentOgLag()">
-                  <div class="btnOutline"></div>
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-            </div>
-            <div class="tomt">
-              <p>Oida, her var det tomt...</p>
-              <i class="fa-solid fa-ghost"></i>
-            </div>
+        <div id="todocontainer">
+          <div id="addnewtodo">
+            <input type="text" placeholder="Legg til ny TODO" id="maininput">
+            <button id="addnew" onclick="hentOgLag()">
+              <div class="btnOutline"></div>
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
-          <div class="vaer">
+          <div class="tomt">
+            <p>Oida, her var det tomt...</p>
+            <i class="fa-solid fa-ghost"></i>
+          </div>
+        </div>
+        <div class="vaer">
 
-          </div>
+        </div>
       </section>
     </main>
   </div>
