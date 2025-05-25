@@ -20,16 +20,16 @@ let tgY = 0
 
 
 //animasjon ved scroll//
-window.onscroll = () =>{
-  sections.forEach(sec =>{
+window.onscroll = () => {
+  sections.forEach(sec => {
     let top = window.scrollY
     let offset = sec.offsetTop - 150
     let height = sec.offsetHeight
 
-    if(top >= offset && top < offset + height){
+    if (top >= offset && top < offset + height) {
       sec.classList.remove("showExitAnimation")
       sec.classList.add("showAnimation")
-    }else{
+    } else {
       sec.classList.remove("showAnimation")
       sec.classList.add("showExitAnimation")
     }
@@ -127,20 +127,20 @@ function checkAccess() {
   if (validPattern.test(code)) {
     localStorage.setItem("loggedIn", "true")
     showMainContent()
-  }else if(codeInput.value === ""){
+  } else if (codeInput.value === "") {
     errorMsg.textContent = "Du må skrive inn et passord"
-  }else {
+  } else {
     errorMsg.textContent = "Minst 6 bokstaver, 1 stor bokstav og ett tall"
   }
   codeInput.value = ""
 }
-codeInput.addEventListener("keydown", (event)=>{
-  if(event.key === "Enter"){
+codeInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
     checkAccess()
   }
 })
-inputElement.addEventListener("keydown", (event)=>{
-  if(event.key === "Enter"){
+inputElement.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
     checkAccess()
   }
 })
@@ -181,9 +181,9 @@ window.onload = function () {
 }
 
 //login screen animasjon
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
   const interBubble = document.querySelector(".interactive")
-  function move(){
+  function move() {
     curX += (tgX - curX) / 20
     curY += (tgY - curY) / 20
     interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`
@@ -206,31 +206,31 @@ const containerElm = document.getElementById("todocontainer")
 const addNewKnapp = document.getElementById("addnew")
 
 window.addEventListener("load", () => {
-    const lagredeTodos = JSON.parse(localStorage.getItem("todos")) || [];
-    lagredeTodos.forEach(todo => {
-        lagTodoElement(todo.tekst, todo.ferdig)
-    })
-    oppdaterTomtSynlighet()
+  const lagredeTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  lagredeTodos.forEach(todo => {
+    lagTodoElement(todo.tekst, todo.ferdig)
+  })
+  oppdaterTomtSynlighet()
 })
 
 function hentOgLag() {
-    const skrevet = hovedInput.value.trim()
-    if (!skrevet) return
+  const skrevet = hovedInput.value.trim()
+  if (!skrevet) return
 
-    lagTodoElement(skrevet, false)
-    lagreTilLocalStorage()
-    hovedInput.value = ""
+  lagTodoElement(skrevet, false)
+  lagreTilLocalStorage()
+  hovedInput.value = ""
 
 }
-hovedInput.addEventListener("keydown", (event)=>{
-  if(event.key === "Enter"){
+hovedInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
     hentOgLag()
     hovedInput.blur()
   }
 })
 addNewKnapp.addEventListener("click", () => {
   const skrevet = hovedInput.value.trim()
-    if(skrevet){
+  if (skrevet) {
     hovedInput.blur()
   }
   hovedInput.value = ""
@@ -239,60 +239,92 @@ addNewKnapp.addEventListener("click", () => {
 
 
 function lagTodoElement(tekst, ferdig) {
-    const divelm = document.createElement("div")
-    divelm.className = "newtodo"
-    containerElm.appendChild(divelm)
+  const divelm = document.createElement("div")
+  divelm.className = "newtodo"
+  containerElm.appendChild(divelm)
 
-    const inputelm = document.createElement("input")
-    inputelm.type = "checkbox"
-    inputelm.className = "minorinput"
-    inputelm.checked = ferdig
-    divelm.appendChild(inputelm)
+  const inputelm = document.createElement("input")
+  inputelm.type = "checkbox"
+  inputelm.className = "minorinput"
+  inputelm.checked = ferdig
+  divelm.appendChild(inputelm)
 
-    const tekstelm = document.createElement("div")
-    tekstelm.className = "tekst"
-    tekstelm.textContent = tekst
-    if (ferdig) tekstelm.classList.add("ferdig")
-    divelm.appendChild(tekstelm)
+  const tekstelm = document.createElement("div")
+  tekstelm.className = "tekst"
+  tekstelm.textContent = tekst
+  if (ferdig) tekstelm.classList.add("ferdig")
+  divelm.appendChild(tekstelm)
 
-    inputelm.addEventListener("change", () => {
-        tekstelm.classList.toggle("ferdig", inputelm.checked)
-        lagreTilLocalStorage()
-    })
+  inputelm.addEventListener("change", () => {
+    tekstelm.classList.toggle("ferdig", inputelm.checked)
+    lagreTilLocalStorage()
+  })
 
-    const trashElm = document.createElement("button")
-    trashElm.className = "trash"
-    trashElm.innerHTML = '<i class="fa-solid fa-trash"></i>'
-    divelm.appendChild(trashElm)
+  const trashElm = document.createElement("button")
+  trashElm.className = "trash"
+  trashElm.innerHTML = '<i class="fa-solid fa-trash"></i>'
+  divelm.appendChild(trashElm)
 
-    trashElm.addEventListener("click", () => {
+  trashElm.addEventListener("click", () => {
 
-        divelm.style.animation = "slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both"
+    divelm.style.animation = "slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both"
 
-        divelm.addEventListener("animationend", () => {
-          divelm.remove()
-          lagreTilLocalStorage()
-          oppdaterTomtSynlighet()
-        }, { once: true })
-    })
-    oppdaterTomtSynlighet()
+    divelm.addEventListener("animationend", () => {
+      divelm.remove()
+      lagreTilLocalStorage()
+      oppdaterTomtSynlighet()
+    }, { once: true })
+  })
+  oppdaterTomtSynlighet()
 }
 function oppdaterTomtSynlighet() {
   const harTodos = containerElm.querySelectorAll(".newtodo").length > 0
-  if(harTodos){
+  if (harTodos) {
     tomt.style.display = "none"
-  }else{
+  } else {
     tomt.style.display = "flex"
   }
 }
 
 function lagreTilLocalStorage() {
-    const alleTodos = []
-    const alleDivs = containerElm.querySelectorAll(".newtodo")
-    alleDivs.forEach(div => {
-        const tekst = div.querySelector(".tekst").textContent
-        const ferdig = div.querySelector("input").checked
-        alleTodos.push({ tekst, ferdig })
-    });
-    localStorage.setItem("todos", JSON.stringify(alleTodos))
+  const alleTodos = []
+  const alleDivs = containerElm.querySelectorAll(".newtodo")
+  alleDivs.forEach(div => {
+    const tekst = div.querySelector(".tekst").textContent
+    const ferdig = div.querySelector("input").checked
+    alleTodos.push({ tekst, ferdig })
+  });
+  localStorage.setItem("todos", JSON.stringify(alleTodos))
 }
+
+
+// NYHETER
+const nyhet = document.getElementById('nyhet')
+
+fetch(`https://gnews.io/api/v4/top-headlines?topic=technology&lang=no&max=10&token=2218c159e8ea69d0d78431cc89bb2db7`)
+  .then(res => res.json())
+  .then(data => {
+    if (!data.articles || data.articles.length === 0) {
+      carousel.innerHTML = '<p>Ingen nyheter funnet.</p>'
+      return
+    }
+
+    nyhet.innerHTML = ''
+    data.articles.forEach(article => {
+      const card = document.createElement('div')
+      card.className = 'news-card'
+      card.innerHTML = `
+            <img src="${article.image || ''}" alt="Bilde">
+            <h3>${article.title}</h3>
+            <p>${article.description || ''}</p>
+            <a href="${article.url}" target="_blank">Les mer</a>
+          `
+      nyhet.appendChild(card);
+    });
+  })
+  .catch(err => {
+    console.error(err)
+    nyhet.innerHTML = '<p>Kunne ikke hente nyheter.</p>'
+  });
+
+
