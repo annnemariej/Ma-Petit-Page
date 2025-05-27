@@ -324,10 +324,10 @@ fetch(`https://gnews.io/api/v4/top-headlines?topic=technology&lang=no&max=10&tok
           `
       nyhet.appendChild(card);
     })
-    const buttonElements = document.querySelectorAll('[data-block="button"]');
+    const buttonElements = document.querySelectorAll('[data-block="button"]')
 
   buttonElements.forEach((buttonElement) => {
-    new Button(buttonElement);
+    new Button(buttonElement)
   })
   })
 
@@ -346,6 +346,8 @@ nextKnapp.addEventListener('click', () => {
 prevKnapp.addEventListener('click', () => {
   nyhet.scrollBy({ left: -320, behavior: 'smooth' })
 })
+
+//GSAP 
 
 class Button {
   constructor(buttonElement) {
