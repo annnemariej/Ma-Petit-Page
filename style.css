@@ -885,6 +885,20 @@ input[type="checkbox"]:checked:after {
 
 }
 
+#dager{
+  grid-column: 1/13;
+  grid-row: 1/2;
+  background-color: red;
+  display: flex;
+}
+
+.ukedager{
+  height: 100%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
