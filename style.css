@@ -736,7 +736,8 @@ input[type="checkbox"]:checked:after {
   position: relative;
   height: 480px;
 }
-.nyhetcard:hover{
+
+.nyhetcard:hover {
   top: -30px;
 }
 
@@ -777,7 +778,8 @@ input[type="checkbox"]:checked:after {
   .button.button--stroke:hover {
     color: white;
   }
-  body.dark   .button.button--stroke:hover {
+
+  body.dark .button.button--stroke:hover {
     color: black;
   }
 }
@@ -806,6 +808,7 @@ input[type="checkbox"]:checked:after {
 .button--stroke:hover .button__label {
   transition: color 0.15s cubic-bezier(0.175, 0.79, 0.38, 0.905);
 }
+
 .button__flair {
   position: absolute;
   top: 50%;
@@ -869,9 +872,18 @@ input[type="checkbox"]:checked:after {
 
 
 
-/* GBRUKER*/
+/* TIMEPLAN*/
 
+#timeplancontainer {
+  grid-column: 2/12;
+  grid-row: 1/12;
+  background-color: black;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(11, 58.5px);
 
+}
 
 
 
@@ -965,8 +977,9 @@ body.dark #addnewtodo .btnOutline {
 
 body.dark .nyhetcard {
   background-color: var(--TodoContainerDM);
-  box-shadow: 0 4px 10px rgba(255, 255, 255,0.1)
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1)
 }
+
 body.dark .button {
   color: white;
   border: 2px solid white;
@@ -975,6 +988,7 @@ body.dark .button {
 body.dark .button--stroke:after {
   border: 1px solid white;
 }
+
 body.dark .button__flair {
   background-color: white;
 }
@@ -983,6 +997,7 @@ body.dark .button__flair:before {
   background-color: white;
 
 }
+
 /*ANIMASJONER*/
 @keyframes vibrate-1 {
   0% {
