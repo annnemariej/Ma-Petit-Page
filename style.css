@@ -939,6 +939,20 @@ input[type="checkbox"]:checked:after {
   border: 1px solid white;
 }
 
+#fagliste {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+}
+
+.fagdrag {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: grab;
+}
+
 
 
 /* SPILL*/
