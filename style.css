@@ -898,6 +898,16 @@ input[type="checkbox"]:checked:after {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid white;
+}
+
+.celle {
+  background-color: white;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 
