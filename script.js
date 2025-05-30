@@ -413,7 +413,7 @@ function fjernFag(e) {
 
 function lagreTimeplan() {
     const data = {}
-    document.querySelectorAll('.fag').forEach(celle => {
+    document.querySelectorAll('.celle').forEach(celle => {
         const pos = celle.dataset.pos
         const fag = celle.textContent.trim()
         if (fag) data[pos] = fag
@@ -423,7 +423,7 @@ function lagreTimeplan() {
 
 function lastTimeplan() {
     const data = JSON.parse(localStorage.getItem("timeplan") || "{}")
-    document.querySelectorAll('.fag').forEach(celle => {
+    document.querySelectorAll('.celle').forEach(celle => {
         const pos = celle.dataset.pos
         celle.innerHTML = ""
         if (data[pos]) {
