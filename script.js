@@ -350,97 +350,97 @@ prevKnapp.addEventListener('click', () => {
 
 //TIMEPLAN!!
 
-  document.querySelectorAll('.fagdrag').forEach(fag => {
+document.querySelectorAll('.fagdrag').forEach(fag => {
     fag.addEventListener('dragstart', e => {
-      e.dataTransfer.setData("text/plain", e.target.dataset.fag);
-      e.dataTransfer.setData("type", "ny");
+        e.dataTransfer.setData("text/plain", e.target.dataset.fag)
+        e.dataTransfer.setData("type", "ny")
     });
-  });
+});
 
-  // Alle celler i timeplanen skal være droppable
-  document.querySelectorAll('.celle').forEach(celle => {
+
+document.querySelectorAll('.celle').forEach(celle => {
     celle.addEventListener('dragover', e => {
-      e.preventDefault();
-      celle.classList.add("over");
+        e.preventDefault();
+        celle.classList.add("over")
     });
 
     celle.addEventListener('dragleave', () => {
-      celle.classList.remove("over");
+        celle.classList.remove("over")
     });
 
     celle.addEventListener('drop', e => {
-      e.preventDefault();
-      celle.classList.remove("over");
+        e.preventDefault();
+        celle.classList.remove("over")
 
-      const fagNavn = e.dataTransfer.getData("text/plain");
-      const type = e.dataTransfer.getData("type");
+        const fagNavn = e.dataTransfer.getData("text/plain")
+        const type = e.dataTransfer.getData("type")
 
-      // Fjern eventuell tidligere innhold
-      celle.innerHTML = "";
 
-      if (type === "ny") {
-        const fagEl = document.createElement("div");
-        fagEl.textContent = fagNavn;
-        fagEl.className = "fag-i-celle";
-        fagEl.id = `fag-${Date.now()}`;
-        fagEl.draggable = true;
-        fagEl.addEventListener("dragstart", dragFag);
-        fagEl.addEventListener("click", fjernFag);
-        celle.appendChild(fagEl);
-      } else if (type === "flytt") {
-        const id = e.dataTransfer.getData("id");
-        const eksisterende = document.getElementById(id);
-        if (eksisterende) {
-          celle.appendChild(eksisterende);
+        celle.innerHTML = ""
+
+        if (type === "ny") {
+            const fagEl = document.createElement("div")
+            fagEl.textContent = fagNavn
+            fagEl.className = "fag-i-celle"
+            fagEl.id = `fag-${Date.now()}`
+            fagEl.draggable = true;
+            fagEl.addEventListener("dragstart", dragFag)
+            fagEl.addEventListener("click", fjernFag)
+            celle.appendChild(fagEl)
+        } else if (type === "flytt") {
+            const id = e.dataTransfer.getData("id")
+            const eksisterende = document.getElementById(id)
+            if (eksisterende) {
+                celle.appendChild(eksisterende)
+            }
         }
-      }
 
-      lagreTimeplan();
+        lagreTimeplan()
     });
-  });
+});
 
-  function dragFag(e) {
-    e.dataTransfer.setData("text/plain", e.target.textContent);
-    e.dataTransfer.setData("type", "flytt");
-    e.dataTransfer.setData("id", e.target.id);
-  }
+function dragFag(e) {
+    e.dataTransfer.setData("text/plain", e.target.textContent)
+    e.dataTransfer.setData("type", "flytt")
+    e.dataTransfer.setData("id", e.target.id)
+}
 
-  function fjernFag(e) {
-    e.stopPropagation(); // Ikke trig dropp igjen
-    e.target.parentElement.innerHTML = "";
-    lagreTimeplan();
-  }
+function fjernFag(e) {
+    e.stopPropagation()
+    e.target.parentElement.innerHTML = ""
+    lagreTimeplan()
+}
 
-  function lagreTimeplan() {
-    const data = {};
+function lagreTimeplan() {
+    const data = {}
     document.querySelectorAll('.fag').forEach(celle => {
-      const pos = celle.dataset.pos;
-      const fag = celle.textContent.trim();
-      if (fag) data[pos] = fag;
+        const pos = celle.dataset.pos
+        const fag = celle.textContent.trim()
+        if (fag) data[pos] = fag
     });
-    localStorage.setItem("timeplan", JSON.stringify(data));
-  }
+    localStorage.setItem("timeplan", JSON.stringify(data))
+}
 
-  function lastTimeplan() {
-    const data = JSON.parse(localStorage.getItem("timeplan") || "{}");
+function lastTimeplan() {
+    const data = JSON.parse(localStorage.getItem("timeplan") || "{}")
     document.querySelectorAll('.fag').forEach(celle => {
-      const pos = celle.dataset.pos;
-      celle.innerHTML = "";
-      if (data[pos]) {
-        const fag = document.createElement("div");
-        fag.className = "fag-i-celle";
-        fag.textContent = data[pos];
-        fag.id = `fag-${Date.now()}-${Math.random()}`;
-        fag.draggable = true;
-        fag.addEventListener("dragstart", dragFag);
-        fag.addEventListener("click", fjernFag);
-        celle.appendChild(fag);
-      }
+        const pos = celle.dataset.pos
+        celle.innerHTML = ""
+        if (data[pos]) {
+            const fag = document.createElement("div")
+            fag.className = "fag-i-celle"
+            fag.textContent = data[pos]
+            fag.id = `fag-${Date.now()}-${Math.random()}`
+            fag.draggable = true
+            fag.addEventListener("dragstart", dragFag)
+            fag.addEventListener("click", fjernFag)
+            celle.appendChild(fag)
+        }
     });
-  }
+}
 
-  // Start
-  lastTimeplan();
+// Start
+lastTimeplan();
 
 //GSAP 
 
