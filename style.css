@@ -901,13 +901,42 @@ input[type="checkbox"]:checked:after {
   border: 1px solid white;
 }
 
-.celle {
-  background-color: white;
-  border: 1px solid #ccc;
+#time1{
+  background-color: green;
+  grid-column: 1/13;
+  grid-row: 2/4;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+
+}
+
+#time2{
+  grid-column: 1/13;
+  grid-row: 4/6;
+  display: flex;
+}
+
+#time3{
+  grid-column: 1/13;
+  grid-row: 6/8;
+  display: flex;
+}
+
+#time4{
+  grid-column: 1/13;
+  grid-row: 8/10;
+  display: flex;
+}
+
+#time5{
+  grid-column: 1/13;
+  grid-row: 10/12;
+  display: flex;
+}
+
+.timer .fag{
+  width: 20%;
+  background-color: aquamarine;
+  border: 1px solid white;
 }
 
 
