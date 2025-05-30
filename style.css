@@ -933,7 +933,7 @@ input[type="checkbox"]:checked:after {
   display: flex;
 }
 
-.timer .fag{
+.timer .celle{
   width: 20%;
   background-color: aquamarine;
   border: 1px solid white;
