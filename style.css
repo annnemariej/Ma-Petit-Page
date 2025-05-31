@@ -898,6 +898,59 @@ input[type="checkbox"]:checked:after {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid white;
+}
+
+#time1{
+  background-color: green;
+  grid-column: 1/13;
+  grid-row: 2/4;
+  display: flex;
+
+}
+
+#time2{
+  grid-column: 1/13;
+  grid-row: 4/6;
+  display: flex;
+}
+
+#time3{
+  grid-column: 1/13;
+  grid-row: 6/8;
+  display: flex;
+}
+
+#time4{
+  grid-column: 1/13;
+  grid-row: 8/10;
+  display: flex;
+}
+
+#time5{
+  grid-column: 1/13;
+  grid-row: 10/12;
+  display: flex;
+}
+
+.timer .celle{
+  width: 20%;
+  background-color: aquamarine;
+  border: 1px solid white;
+}
+
+#fagliste {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+}
+
+.fagdrag {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: grab;
 }
 
 
