@@ -580,6 +580,7 @@ body.dark .toggleSirkel {
   overflow: hidden;
   overflow-y: auto;
   opacity: 0;
+  scrollbar-gutter: stable both-edges;
 }
 
 #addnewtodo {
