@@ -903,7 +903,6 @@ input[type="checkbox"]:checked:after {
 }
 
 #time1 {
-  background-color: green;
   grid-column: 1/13;
   grid-row: 2/4;
   display: flex;
