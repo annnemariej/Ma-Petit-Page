@@ -239,7 +239,7 @@ if (hovedInput && addNewKnapp) {
         }
         hovedInput.value = ""
         hovedInput.focus()
-    })   
+    })
 }
 
 function lagTodoElement(tekst, ferdig) {
@@ -304,21 +304,21 @@ function lagreTilLocalStorage() {
 
 // NYHETER
 const nyhet = document.getElementById('nyhet')
-if(nyhet){
+if (nyhet) {
 
     fetch(`https://gnews.io/api/v4/top-headlines?topic=technology&lang=no&max=10&token=2218c159e8ea69d0d78431cc89bb2db7`)
-    .then(res => res.json())
-    .then(data => {
-        if (!data.articles || data.articles.length === 0) {
-            carousel.innerHTML = '<p>Ingen nyheter funnet.</p>'
-            return
-        }
-        
-        nyhet.innerHTML = ''
-        data.articles.forEach(article => {
-            const card = document.createElement('div')
-            card.className = 'nyhetcard'
-            card.innerHTML = `
+        .then(res => res.json())
+        .then(data => {
+            if (!data.articles || data.articles.length === 0) {
+                carousel.innerHTML = '<p>Ingen nyheter funnet.</p>'
+                return
+            }
+
+            nyhet.innerHTML = ''
+            data.articles.forEach(article => {
+                const card = document.createElement('div')
+                card.className = 'nyhetcard'
+                card.innerHTML = `
             <img src="${article.image || ''}" alt="Bilde">
             <h3>${article.title}</h3>
             <p>${article.description || ''}</p>
@@ -327,30 +327,30 @@ if(nyhet){
             <span class="button__label">Les Mer</span>
             </a>
             `
-            nyhet.appendChild(card);
+                nyhet.appendChild(card);
+            })
+            const buttonElements = document.querySelectorAll('[data-block="button"]')
+
+            buttonElements.forEach((buttonElement) => {
+                new Button(buttonElement)
+            })
         })
-        const buttonElements = document.querySelectorAll('[data-block="button"]')
-        
-        buttonElements.forEach((buttonElement) => {
-            new Button(buttonElement)
+
+        .catch(err => {
+            console.error(err)
+            nyhet.innerHTML = '<p>Kunne ikke hente nyheter.</p>'
         })
-    })
-    
-    .catch(err => {
-        console.error(err)
-        nyhet.innerHTML = '<p>Kunne ikke hente nyheter.</p>'
-    })
 }
 
 const nextKnapp = document.getElementById('nextKnapp')
 const prevKnapp = document.getElementById('prevKnapp')
 
-if (nextKnapp && prevKnapp){
+if (nextKnapp && prevKnapp) {
 
     nextKnapp.addEventListener('click', () => {
         nyhet.scrollBy({ left: 320, behavior: 'smooth' })
     })
-    
+
     prevKnapp.addEventListener('click', () => {
         nyhet.scrollBy({ left: -320, behavior: 'smooth' })
     })
@@ -363,12 +363,12 @@ let fager = document.getElementsByClassName("fagdrag")
 let nedreboks = document.getElementById("fagliste")
 let oppebokser = document.getElementsByClassName("celle")
 
-if (nedreboks && oppebokser){
+if (nedreboks && oppebokser) {
 
-    nedreboks.addEventListener("dragover", function(e) {
+    nedreboks.addEventListener("dragover", function (e) {
         e.preventDefault()
     })
-    nedreboks.addEventListener("drop", function(e) {
+    nedreboks.addEventListener("drop", function (e) {
         e.preventDefault()
         let fagId = e.dataTransfer.getData("text/plain")
         let fagElm = document.getElementById(fagId)
@@ -376,29 +376,37 @@ if (nedreboks && oppebokser){
             nedreboks.appendChild(fagElm)
         }
     })
-    
+
     for (let fag of fager) {
         fag.setAttribute("draggable", "true")
-        fag.addEventListener("dragstart", function(e) {
+        fag.addEventListener("dragstart", function (e) {
             e.dataTransfer.setData("text/plain", fag.id)
         })
     }
-    
+
     for (let celle of oppebokser) {
-        celle.addEventListener("dragover", function(e) {
+        celle.addEventListener("dragover", function (e) {
             console.log("dragover", e)
             e.preventDefault()
         })
-        celle.addEventListener("drop", function(e) {
+        celle.addEventListener("drop", function (e) {
             e.preventDefault()
             let fagId = e.dataTransfer.getData("text/plain")
             let fagElm = document.getElementById(fagId)
             if (fagElm) {
-                celle.appendChild(fagElm)
+                // Lag en kopi
+                let klone = fagElm.cloneNode(true)
+                klone.id = fagElm.id + "-" + Date.now() // unik id så vi unngår duplikat-ID
+                klone.setAttribute("draggable", "true")
+                klone.addEventListener("dragstart", function (e) {
+                    e.dataTransfer.setData("text/plain", klone.id)
+                })
+                celle.appendChild(klone)
             }
         })
+
     }
-    
+
 }
 
 //GSAP 
