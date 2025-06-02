@@ -151,7 +151,7 @@ nav {
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  width: 210px;
+  width: 420px;
 }
 
 .venstre {
@@ -957,6 +957,34 @@ input[type="checkbox"]:checked:after {
 
 
 /* SPILL*/
+.spill .sec_1 .innhold{
+  z-index: 10000;
+  grid-column: 6 / 8;
+  grid-row: 5 / 11;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.spill .sec_1 h1{
+  font-size: 100px;
+}
+.spill .sec_1 i{
+  border: 1px solid black;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  color: rgb(139, 139, 139);
+  background-color: black;
+  width: 50px;
+  height: 50px;
+}
+.spill .sec_1 i:hover{
+  animation: vibrate-1 0.3s linear infinite both;
+}
 
 
 
@@ -1231,5 +1259,28 @@ body.dark .button__flair:before {
 
   100% {
     transform: translateX(-50%) translateY(-10%);
+  }
+}
+@keyframes heartbeat {
+  from {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
   }
 }
