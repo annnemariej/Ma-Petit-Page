@@ -365,15 +365,58 @@ let oppebokser = document.getElementsByClassName("celle")
 
 if (nedreboks && oppebokser) {
 
+    function lagreTimeplan() {
+        let timeplan = []
+
+        for (let celle of oppebokser) {
+            let fagElement = celle.querySelector(".fagdrag")
+            if (fagElement) {
+                timeplan.push({
+                    celleId: celle.dataset.pos,
+                    fag: fagElement.getAttribute("data-fag")
+                })
+            }
+        }
+
+        localStorage.setItem("timeplan", JSON.stringify(timeplan))
+    }
+
+    function lastInnTimeplan() {
+        let timeplan = JSON.parse(localStorage.getItem("timeplan"))
+        if (!timeplan) return
+
+        for (let oppforing of timeplan) {
+            let celle = document.querySelector(`[data-pos="${oppforing.celleId}"]`)
+            if (celle) {
+                let original = Array.from(fager).find(el => el.getAttribute("data-fag") === oppforing.fag)
+                if (original) {
+                    let klone = original.cloneNode(true)
+                    klone.id = original.id + "-" + Date.now()
+                    klone.setAttribute("draggable", "true")
+                    klone.addEventListener("dragstart", function (e) {
+                        e.dataTransfer.setData("text/plain", klone.id)
+                    })
+                    klone.addEventListener("click", function () {
+                        klone.remove()
+                        lagreTimeplan()
+                    })
+                    celle.appendChild(klone)
+                }
+            }
+        }
+    }
+
     nedreboks.addEventListener("dragover", function (e) {
         e.preventDefault()
     })
+
     nedreboks.addEventListener("drop", function (e) {
         e.preventDefault()
         let fagId = e.dataTransfer.getData("text/plain")
         let fagElm = document.getElementById(fagId)
         if (fagElm) {
             nedreboks.appendChild(fagElm)
+            lagreTimeplan()
         }
     })
 
@@ -386,28 +429,34 @@ if (nedreboks && oppebokser) {
 
     for (let celle of oppebokser) {
         celle.addEventListener("dragover", function (e) {
-            console.log("dragover", e)
             e.preventDefault()
         })
+
         celle.addEventListener("drop", function (e) {
             e.preventDefault()
             let fagId = e.dataTransfer.getData("text/plain")
             let fagElm = document.getElementById(fagId)
             if (fagElm) {
-                // Lag en kopi
                 let klone = fagElm.cloneNode(true)
-                klone.id = fagElm.id + "-" + Date.now() // unik id så vi unngår duplikat-ID
+                klone.id = fagElm.id + "-" + Date.now()
                 klone.setAttribute("draggable", "true")
                 klone.addEventListener("dragstart", function (e) {
                     e.dataTransfer.setData("text/plain", klone.id)
                 })
+                klone.addEventListener("click", function () {
+                    klone.remove()
+                    lagreTimeplan()
+                })
                 celle.appendChild(klone)
+                lagreTimeplan()
             }
         })
-
     }
 
+    
+    lastInnTimeplan()
 }
+
 
 //GSAP 
 
