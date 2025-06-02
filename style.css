@@ -878,11 +878,12 @@ input[type="checkbox"]:checked:after {
 #timeplancontainer {
   grid-column: 2/12;
   grid-row: 1/12;
-  background-color: black;
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(11, 58.5px);
+  border-radius: 10px;
+  border: 1px solid transparent;
 
 }
 
@@ -944,10 +945,11 @@ input[type="checkbox"]:checked:after {
   flex-direction: column;
 }
 
-.celle .fagdrag{
+.celle .fagdrag {
   border: none;
   background-color: transparent;
 }
+
 #fagliste {
   display: flex;
   gap: 10px;
