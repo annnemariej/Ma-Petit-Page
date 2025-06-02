@@ -957,7 +957,7 @@ input[type="checkbox"]:checked:after {
 }
 
 .fagdrag {
-  background-color: #4CAF50;
+  background-color: #A020F0;
   color: white;
   padding: 6px 12px;
   border-radius: 5px;
@@ -1074,6 +1074,23 @@ body.dark .button__flair {
 body.dark .button__flair:before {
   background-color: white;
 
+}
+
+body.dark #dager{
+  background-color: #663399;
+}
+
+body.dark .timer .celle{
+  background-color: #6A5ACD;
+  border: 1px solid black;
+}
+
+body.dark .celle .fagdrag{
+  color: white;
+}
+
+body.dark .fagdrag{
+  background-color: #663399;
 }
 
 /*ANIMASJONER*/
