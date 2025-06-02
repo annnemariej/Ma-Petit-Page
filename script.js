@@ -205,13 +205,15 @@ const hovedInput = document.getElementById("maininput")
 const containerElm = document.getElementById("todocontainer")
 const addNewKnapp = document.getElementById("addnew")
 
-window.addEventListener("load", () => {
-    const lagredeTodos = JSON.parse(localStorage.getItem("todos")) || [];
-    lagredeTodos.forEach(todo => {
-        lagTodoElement(todo.tekst, todo.ferdig)
+if (containerElm) {
+    window.addEventListener("load", () => {
+        const lagredeTodos = JSON.parse(localStorage.getItem("todos")) || [];
+        lagredeTodos.forEach(todo => {
+            lagTodoElement(todo.tekst, todo.ferdig)
+        })
+        oppdaterTomtSynlighet()
     })
-    oppdaterTomtSynlighet()
-})
+}
 
 function hentOgLag() {
     const skrevet = hovedInput.value.trim()
@@ -222,21 +224,23 @@ function hentOgLag() {
     hovedInput.value = ""
 
 }
-hovedInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-        hentOgLag()
-        hovedInput.blur()
-    }
-})
-addNewKnapp.addEventListener("click", () => {
-    const skrevet = hovedInput.value.trim()
-    if (skrevet) {
-        hovedInput.blur()
-    }
-    hovedInput.value = ""
-    hovedInput.focus()
-})
 
+if (hovedInput && addNewKnapp) {
+    hovedInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            hentOgLag()
+            hovedInput.blur()
+        }
+    })
+    addNewKnapp.addEventListener("click", () => {
+        const skrevet = hovedInput.value.trim()
+        if (skrevet) {
+            hovedInput.blur()
+        }
+        hovedInput.value = ""
+        hovedInput.focus()
+    })   
+}
 
 function lagTodoElement(tekst, ferdig) {
     const divelm = document.createElement("div")
@@ -300,15 +304,16 @@ function lagreTilLocalStorage() {
 
 // NYHETER
 const nyhet = document.getElementById('nyhet')
+if(nyhet){
 
-fetch(`https://gnews.io/api/v4/top-headlines?topic=technology&lang=no&max=10&token=2218c159e8ea69d0d78431cc89bb2db7`)
+    fetch(`https://gnews.io/api/v4/top-headlines?topic=technology&lang=no&max=10&token=2218c159e8ea69d0d78431cc89bb2db7`)
     .then(res => res.json())
     .then(data => {
         if (!data.articles || data.articles.length === 0) {
             carousel.innerHTML = '<p>Ingen nyheter funnet.</p>'
             return
         }
-
+        
         nyhet.innerHTML = ''
         data.articles.forEach(article => {
             const card = document.createElement('div')
@@ -318,129 +323,83 @@ fetch(`https://gnews.io/api/v4/top-headlines?topic=technology&lang=no&max=10&tok
             <h3>${article.title}</h3>
             <p>${article.description || ''}</p>
             <a href="${article.url}" class="button button--stroke" data-block="button" target="_blank">
-              <span class="button__flair"></span>
-              <span class="button__label">Les Mer</span>
+            <span class="button__flair"></span>
+            <span class="button__label">Les Mer</span>
             </a>
-          `
+            `
             nyhet.appendChild(card);
         })
         const buttonElements = document.querySelectorAll('[data-block="button"]')
-
+        
         buttonElements.forEach((buttonElement) => {
             new Button(buttonElement)
         })
     })
-
+    
     .catch(err => {
         console.error(err)
         nyhet.innerHTML = '<p>Kunne ikke hente nyheter.</p>'
     })
+}
 
 const nextKnapp = document.getElementById('nextKnapp')
 const prevKnapp = document.getElementById('prevKnapp')
 
-nextKnapp.addEventListener('click', () => {
-    nyhet.scrollBy({ left: 320, behavior: 'smooth' })
-})
+if (nextKnapp && prevKnapp){
 
-prevKnapp.addEventListener('click', () => {
-    nyhet.scrollBy({ left: -320, behavior: 'smooth' })
-})
+    nextKnapp.addEventListener('click', () => {
+        nyhet.scrollBy({ left: 320, behavior: 'smooth' })
+    })
+    
+    prevKnapp.addEventListener('click', () => {
+        nyhet.scrollBy({ left: -320, behavior: 'smooth' })
+    })
+}
 
 
 //TIMEPLAN!!
 
-document.querySelectorAll('.fagdrag').forEach(fag => {
-    fag.addEventListener('dragstart', e => {
-        e.dataTransfer.setData("text/plain", e.target.dataset.fag)
-        e.dataTransfer.setData("type", "ny")
-    });
-});
+let fager = document.getElementsByClassName("fagdrag")
+let nedreboks = document.getElementById("fagliste")
+let oppebokser = document.getElementsByClassName("celle")
 
+if (nedreboks && oppebokser){
 
-document.querySelectorAll('.celle').forEach(celle => {
-    celle.addEventListener('dragover', e => {
-        e.preventDefault();
-        celle.classList.add("over")
-    });
-
-    celle.addEventListener('dragleave', () => {
-        celle.classList.remove("over")
-    });
-
-    celle.addEventListener('drop', e => {
-        e.preventDefault();
-        celle.classList.remove("over")
-
-        const fagNavn = e.dataTransfer.getData("text/plain")
-        const type = e.dataTransfer.getData("type")
-
-
-        celle.innerHTML = ""
-
-        if (type === "ny") {
-            const fagEl = document.createElement("div")
-            fagEl.textContent = fagNavn
-            fagEl.className = "fag-i-celle"
-            fagEl.id = `fag-${Date.now()}`
-            fagEl.draggable = true;
-            fagEl.addEventListener("dragstart", dragFag)
-            fagEl.addEventListener("click", fjernFag)
-            celle.appendChild(fagEl)
-        } else if (type === "flytt") {
-            const id = e.dataTransfer.getData("id")
-            const eksisterende = document.getElementById(id)
-            if (eksisterende) {
-                celle.appendChild(eksisterende)
+    nedreboks.addEventListener("dragover", function(e) {
+        e.preventDefault()
+    })
+    nedreboks.addEventListener("drop", function(e) {
+        e.preventDefault()
+        let fagId = e.dataTransfer.getData("text/plain")
+        let fagElm = document.getElementById(fagId)
+        if (fagElm) {
+            nedreboks.appendChild(fagElm)
+        }
+    })
+    
+    for (let fag of fager) {
+        fag.setAttribute("draggable", "true")
+        fag.addEventListener("dragstart", function(e) {
+            e.dataTransfer.setData("text/plain", fag.id)
+        })
+    }
+    
+    for (let celle of oppebokser) {
+        celle.addEventListener("dragover", function(e) {
+            console.log("dragover", e)
+            e.preventDefault()
+        })
+        celle.addEventListener("drop", function(e) {
+            e.preventDefault()
+            let fagId = e.dataTransfer.getData("text/plain")
+            let fagElm = document.getElementById(fagId)
+            if (fagElm) {
+                celle.appendChild(fagElm)
             }
-        }
-
-        lagreTimeplan()
-    });
-});
-
-function dragFag(e) {
-    e.dataTransfer.setData("text/plain", e.target.textContent)
-    e.dataTransfer.setData("type", "flytt")
-    e.dataTransfer.setData("id", e.target.id)
+        })
+    }
+    
 }
-
-function fjernFag(e) {
-    e.stopPropagation()
-    e.target.parentElement.innerHTML = ""
-    lagreTimeplan()
-}
-
-function lagreTimeplan() {
-    const data = {}
-    document.querySelectorAll('.celle').forEach(celle => {
-        const pos = celle.dataset.pos
-        const fag = celle.textContent.trim()
-        if (fag) data[pos] = fag
-    });
-    localStorage.setItem("timeplan", JSON.stringify(data))
-}
-
-function lastTimeplan() {
-    const data = JSON.parse(localStorage.getItem("timeplan") || "{}")
-    document.querySelectorAll('.celle').forEach(celle => {
-        const pos = celle.dataset.pos
-        celle.innerHTML = ""
-        if (data[pos]) {
-            const fag = document.createElement("div")
-            fag.className = "fag-i-celle"
-            fag.textContent = data[pos]
-            fag.id = `fag-${Date.now()}-${Math.random()}`
-            fag.draggable = true
-            fag.addEventListener("dragstart", dragFag)
-            fag.addEventListener("click", fjernFag)
-            celle.appendChild(fag)
-        }
-    });
-}
-
-// Start
-lastTimeplan();
 
 //GSAP 
 

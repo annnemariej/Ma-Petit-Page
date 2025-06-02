@@ -937,6 +937,7 @@ input[type="checkbox"]:checked:after {
   width: 20%;
   background-color: aquamarine;
   border: 1px solid white;
+  z-index: 3;
 }
 
 #fagliste {
