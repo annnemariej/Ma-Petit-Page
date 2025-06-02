@@ -356,6 +356,52 @@ if (nextKnapp && prevKnapp) {
     })
 }
 
+//FAG
+const lat = 59.9127;
+const lon = 10.7461;
+const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,rain&forecast_days=3`;
+const vaercontainer = document.getElementById("vaerInnhold")
+
+if(vaercontainer){
+
+    
+    fetch(apiUrl)
+    .then(res => res.json())
+    .then(data => {
+        const times = data.hourly.time;
+        const temps = data.hourly.temperature_2m;
+        const rain = data.hourly.rain;
+        const vaercontainer = document.getElementById("vaerInnhold")
+        
+        
+        for (let i = 0; i < times.length; i += 6) { // hopper over hver 6. time for mindre spam
+            const row = document.createElement("div")
+            row.className = "vaerRad"
+            
+            const tid = document.createElement("div")
+            tid.className = "vaerTid"
+            tid.textContent = new Date(times[i]).toLocaleString("no-NO", {
+                weekday: 'short', hour: '2-digit', minute: '2-digit'
+            });
+            
+            const temp = document.createElement("div")
+            temp.className = "vaerTemp"
+            temp.textContent = `${temps[i]} °C`
+            
+            const regn = document.createElement("div")
+            regn.className = "vaerRegn"
+            regn.textContent = `${rain[i]} mm`
+            
+            row.appendChild(tid)
+            row.appendChild(temp)
+            row.appendChild(regn)
+            
+            vaercontainer.appendChild(row)
+        }
+  })
+  .catch(err => console.error("Klarte ikke hente værdata:", err));
+}
+
 
 //TIMEPLAN!!
 

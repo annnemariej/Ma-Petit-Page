@@ -555,8 +555,6 @@ body.dark .toggleSirkel {
 .vaer {
   grid-column: 8/12;
   grid-row: 2/8;
-  border: 1px solid var(--errorMessage);
-
 }
 
 /*TODO LISTE*/
@@ -705,6 +703,44 @@ input[type="checkbox"]:checked:after {
   font-size: 100px;
 }
 
+/*VÆR*/
+#vaerContainer {
+  background-color: rgb(245, 245, 245);
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+#vaerContainer h2 {
+  text-align: center;
+  color: #66aaff;
+  margin-bottom: 20px;
+}
+
+.vaerRad {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #333;
+}
+
+.vaerRad:last-child {
+  border-bottom: none;
+}
+
+.vaerTid {
+  flex: 2;
+}
+
+.vaerTemp,
+.vaerRegn {
+  flex: 1;
+  text-align: right;
+}
 
 /*NYHETER SKJERM*/
 
@@ -967,7 +1003,7 @@ input[type="checkbox"]:checked:after {
 
 
 /* SPILL*/
-.spill .sec_1 .innhold{
+.spill .sec_1 .innhold {
   z-index: 10000;
   grid-column: 6 / 8;
   grid-row: 5 / 11;
@@ -977,10 +1013,12 @@ input[type="checkbox"]:checked:after {
   justify-content: space-between;
   align-items: center;
 }
-.spill .sec_1 h1{
+
+.spill .sec_1 h1 {
   font-size: 100px;
 }
-.spill .sec_1 i{
+
+.spill .sec_1 i {
   border: 1px solid black;
   font-size: 20px;
   display: flex;
@@ -992,7 +1030,8 @@ input[type="checkbox"]:checked:after {
   width: 50px;
   height: 50px;
 }
-.spill .sec_1 i:hover{
+
+.spill .sec_1 i:hover {
   animation: vibrate-1 0.3s linear infinite both;
 }
 
@@ -1104,21 +1143,26 @@ body.dark .button__flair:before {
 
 }
 
-body.dark #dager{
+body.dark #dager {
   background-color: #663399;
 }
 
-body.dark .timer .celle{
+body.dark .timer .celle {
   background-color: #6A5ACD;
   border: 1px solid black;
 }
 
-body.dark .celle .fagdrag{
+body.dark .celle .fagdrag {
   color: white;
 }
 
-body.dark .fagdrag{
+body.dark .fagdrag {
   background-color: #663399;
+}
+
+body.dark #vaerContainer {
+  background-color: var(--TodoContainerDM);
+  color: white;
 }
 
 /*ANIMASJONER*/
@@ -1288,24 +1332,29 @@ body.dark .fagdrag{
     transform: translateX(-50%) translateY(-10%);
   }
 }
+
 @keyframes heartbeat {
   from {
     transform: scale(1);
     transform-origin: center center;
     animation-timing-function: ease-out;
   }
+
   10% {
     transform: scale(0.91);
     animation-timing-function: ease-in;
   }
+
   17% {
     transform: scale(0.98);
     animation-timing-function: ease-out;
   }
+
   33% {
     transform: scale(0.87);
     animation-timing-function: ease-in;
   }
+
   45% {
     transform: scale(1);
     animation-timing-function: ease-out;
