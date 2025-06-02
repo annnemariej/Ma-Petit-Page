@@ -246,7 +246,7 @@ nav {
   opacity: 0;
   visibility: hidden;
   top: -59px;
-  right: -34px;
+  right: 2px;
   background-color: var(--TxtLightMode);
   padding: 30px;
   z-index: 999;
