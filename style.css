@@ -920,6 +920,7 @@ input[type="checkbox"]:checked:after {
   grid-template-rows: repeat(11, 58.5px);
   border-radius: 10px;
   border: 1px solid transparent;
+  gap: 5px;
 
 }
 
@@ -968,16 +969,21 @@ input[type="checkbox"]:checked:after {
   grid-row: 10/12;
   display: flex;
 }
+.timer{
+  gap: 5px;
+  
+}
 
 .timer .celle {
   width: 20%;
   background-color: lavender;
-  border: 1px solid white;
+  gap: 3px;
   z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border-radius: 20px;
 }
 
 .celle .fagdrag {
@@ -1032,7 +1038,8 @@ input[type="checkbox"]:checked:after {
 }
 
 .spill .sec_1 i:hover {
-  animation: vibrate-1 0.3s linear infinite both;
+	animation: heartbeat 1.5s ease-in-out infinite both;
+  cursor: pointer;
 }
 
 
@@ -1149,7 +1156,6 @@ body.dark #dager {
 
 body.dark .timer .celle {
   background-color: #6A5ACD;
-  border: 1px solid black;
 }
 
 body.dark .celle .fagdrag {
