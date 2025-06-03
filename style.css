@@ -913,7 +913,7 @@ input[type="checkbox"]:checked:after {
 
 #timeplancontainer {
   grid-column: 2/12;
-  grid-row: 1/12;
+  grid-row: 1/14;
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -921,6 +921,7 @@ input[type="checkbox"]:checked:after {
   border-radius: 10px;
   border: 1px solid transparent;
   gap: 5px;
+  overflow: hidden;
 
 }
 
@@ -983,7 +984,6 @@ input[type="checkbox"]:checked:after {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-radius: 20px;
 }
 
 .celle .fagdrag {
