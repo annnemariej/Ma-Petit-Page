@@ -938,6 +938,7 @@ input[type="checkbox"]:checked:after {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 900;
 }
 
 #time1 {
@@ -1040,6 +1041,9 @@ input[type="checkbox"]:checked:after {
 .spill .sec_1 i:hover {
 	animation: heartbeat 1.5s ease-in-out infinite both;
   cursor: pointer;
+}
+.spill a{
+  text-decoration: none;
 }
 
 
