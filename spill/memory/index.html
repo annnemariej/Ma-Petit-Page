@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitt Memory Spill</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="bilder/favicon/favicon.png">
+    <script src="https://kit.fontawesome.com/f6aa59a7b7.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --lys-blaa: rgb(55, 55, 158);
+            --mørk-blaa: rgb(10, 10, 84);
+            --blå-skygge: rgb(5, 5, 52);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: var(--lys-blaa);
+        }
+
+        img{
+            width: 100%;
+        }
+        body{
+            background-color: var(--mørk-blaa);
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 1250px;
+            justify-content: space-between;
+        }
+        h2{
+            color: white;
+            font-size: 200px;
+            font-family: "Handjet", sans-serif;
+        }
+        p{
+            margin-top: 10px;
+            font-size: 60px;
+            font-weight: 900;
+            color: white;
+        }
+        h1{
+            color: white;
+        }
+        #tekst{
+            color: white;
+            width: 70%;
+            height: 100%;
+            font-weight: 100;
+            line-height: 35px;
+            font-size: 25px;
+        }
+        .fa-home {
+            color: var(--lys-blaa);
+            font-size: 50px;
+        }
+
+        .fa-home:hover {
+            background-color: var(--lys-blaa);
+        }
+
+        .containerIndex{
+            width: 85%;
+            height: 80px ;  
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            perspective: 1000px;
+            margin-top: -100px;
+        }
+        .containervanskgrad{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .vanskgrad:hover{
+            transform: scale(0.9);
+            transition: transform 0.2s;
+
+        }
+        .vanskgrad{
+            background-color: var(--lys-blaa);
+            width: 350px;
+            height: 350px;
+            border-radius: 10px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(1);
+            transform-style: preserve-3d;
+            transition: transform .5s;
+            box-shadow: 20px 10px 20px var(--blå-skygge);
+        
+        }
+        .fa-face-smile, .fa-face-frown-open, .fa-face-dizzy{
+            color: white;
+            font-size: 200px;
+        }
+        .about{
+            padding: 50px;
+            height: 450px;
+            width: 80%;
+            background-color: var(--lys-blaa);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 500px;
+        }
+        @media (width <= 1230px){
+            #tekst{
+                font-size: 20px;
+            }
+        }
+        @media (width <= 1250px){
+            .vanskgrad{
+                width: 300px;
+                height: 300px;
+            }
+        }
+        @media (width <= 1079px){
+            .containerIndex{
+                flex-direction: column;
+                height: 1600px;
+                margin-top: 50px;
+            }
+            .vanskgrad{
+                width: 500px;
+                height: 500px;
+                margin-bottom: 20px;
+            }
+            .about{
+                display: none;
+            }
+            p{
+                display: none;
+            }
+            h2{
+                font-size: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+    <h2>MEMORY SPILL</h2>
+
+    <div class="containerIndex">
+        <div class="containervanskgrad">
+        <a href="vanskelighetsgrad1.html">
+            <div class="vanskgrad">
+                <i class="fa-solid fa-face-smile"></i>
+            </div>
+        </a>
+        <p>Enkel</p>
+        </div>
+        <div class="containervanskgrad">
+        <a href="vanskelighetsgrad2.html">
+            <div class="vanskgrad">
+                <i class="fa-solid fa-face-frown-open"></i>
+            </div>
+        </a>
+        <p>Medium</p>
+        </div>
+        <div class="containervanskgrad">
+        <a href="vanskelighetsgrad3.html">
+            <div class="vanskgrad">
+                <i class="fa-solid fa-face-dizzy"></i>
+            </div>
+        </a>
+        <p>Vanskelig</p>
+        </div>
+    </div>
+        <div class="about">
+            <h1>Om spillet</h1>
+            <p id="tekst">Memory er et spill med lang historie. Flere nasjoner og omeråder har sin egen versjon av spillet, men alle er relativit like. Japan på 1500-tallet hadde et likt spill kalt "asAwase", Sveits hadde "Zwillinsspiel", England og Usa hadde "Pairs", "Pelanism" og "Concentration", det finnes hundrevis av forskjellige versjoner. Reglene er relativt enkle, enkelt forklart må man matche to kort med lik illustrasjon, tekst eller tall på forsiden. Kortene er alltid snudd på baksiden, og man flipper to og to kort, for å så måtte huske posisjonen til de forskjellige kortene. Memory, og mange andre like puslespill, er også helt fantastisk trening for hukommelse og konsentrasjon. </p>
+        </div>
+</main>
+</body>
+</html>

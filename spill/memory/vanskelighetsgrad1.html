@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enkel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="bilder/favicon/favicon.png">
+    <script src="https://kit.fontawesome.com/f6aa59a7b7.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body class="bodyspill">
+    <nav>
+        <a href="index.html">
+            <i class="fa-solid fa-home" id="hjemknapp"></i>
+        </a>
+        <div class="klokke" id="klokkecss">
+            <h1>Klokke</h1>
+            <p id="klokke">50 sek</p>
+        </div>
+    </nav>
+
+    <div id="container" class="container">
+        <h2>MEMORY SPILL</h2>
+        <div id="spill1">
+            <div class="memoryKort" data-framework="1">
+                <div class="forside">
+                    <i class="fa-solid fa-ghost"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="1">
+                <div class="forside">
+                    <i class="fa-solid fa-ghost"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="2">
+                <div class="forside">
+                    <i class="fa-solid fa-dragon"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="2">
+                <div class="forside">
+                    <i class="fa-solid fa-dragon"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="3">
+                <div class="forside">
+                    <i class="fa-solid fa-ring"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="3">
+                <div class="forside">
+                    <i class="fa-solid fa-ring"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="4">
+                <div class="forside">
+                    <i class="fa-solid fa-hat-wizard"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="4">
+                <div class="forside">
+                    <i class="fa-solid fa-hat-wizard"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="5">
+                <div class="forside">
+                    <i class="fa-solid fa-chess-knight"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="5">
+                <div class="forside">
+                    <i class="fa-solid fa-chess-knight"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="6">
+                <div class="forside">
+                    <i class="fa-solid fa-dungeon"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+
+            <div class="memoryKort" data-framework="6">
+                <div class="forside">
+                    <i class="fa-solid fa-dungeon"></i>
+                </div>
+                <h1 class="bakside">?</h1>
+            </div>
+        </div>
+        <button class="restart" id="restart" onclick="omstart()">Prøv På Nytt</button>
+        <div class="toggle-knapp">
+            <p>Jule-Modus</p>
+            <button id="juleMode">
+                <div class="toggleSirkel">
+
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let makspoeng = 6
+
+        //klokke
+        const klokkeElement = document.getElementById('klokke')
+
+        let klokke = 50
+        let klokkeref = null
+
+        function tikkKlokke() {
+        klokke -= 1
+        console.log(klokkeElement)
+        klokkeElement.innerHTML = klokke + " sek"
+
+        if (klokke <= 10){
+            klokkeElement.style.color = "red"
+        }
+
+        if (klokke < 0){
+            clearInterval(klokkeref)
+            alert("tiden er ute, du tapte! :(")
+            omstart()
+      
+        }
+        }
+
+        if (!klokkeref) {
+        klokkeref = setInterval(tikkKlokke, 1000)
+        }
+    </script>
+</body>
+
+</html>
