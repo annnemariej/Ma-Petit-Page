@@ -1300,7 +1300,7 @@ body.dark .celle .fagdrag {
   color: white;
 }
 
-body.dark .fagdrag {
+body.dark #fagliste .fagdrag {
   background-color: #663399;
 }
 
