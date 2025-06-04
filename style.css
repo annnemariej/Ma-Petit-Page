@@ -104,8 +104,6 @@ section {
   animation-name: slide-in;
 }
 
-.sec_2 {}
-
 
 #velkommen {
   grid-row: 2/5;
@@ -721,6 +719,13 @@ input[type="checkbox"]:checked:after {
   font-family: 'Quicksand';
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   height: 100%;
+  opacity:  0;
+}
+.sec_3.showAnimation #vaerContainer {
+  animation-duration: 0.5s;
+  animation-name: slide-in-right;
+  animation-fill-mode: forwards;
+
 }
 
 #vaerContainer h2 {
