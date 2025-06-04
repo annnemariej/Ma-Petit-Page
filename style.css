@@ -1081,6 +1081,21 @@ input[type="checkbox"]:checked:after {
 .spill .sec_2 .innhold{
   grid-column: 7/12;
   grid-row: 4/12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.spill .sec_2 .tekst{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.spill .sec_2 h1{
+  font-size: 70px;
+}
+.spill .sec_2 p{
+  font-size: 12px;
 }
 
 
