@@ -813,12 +813,12 @@ input[type="checkbox"]:checked:after {
   margin: 30px;
   color: black;
   text-decoration: none;
-  position: absolute;
-  bottom: 0px;
+  position: relative;
   padding: 9px 13px 9px 13px;
   border-radius: 30px;
   border: 2px solid black;
   overflow: hidden;
+  width: fit-content;
 }
 
 @media (hover: hover) {
@@ -1070,10 +1070,18 @@ input[type="checkbox"]:checked:after {
   cursor: pointer;
 }
 
-.spill a {
+.spill .sec_1 a {
   text-decoration: none;
 }
 
+.spill .sec_2 img{
+  grid-row: 3/13;
+  grid-column: 2/6 ;
+}
+.spill .sec_2 .innhold{
+  grid-column: 7/12;
+  grid-row: 4/12;
+}
 
 
 

@@ -561,7 +561,6 @@ if (nedreboks && oppebokser) {
 
 
 //GSAP 
-
 class Button {
     constructor(buttonElement) {
         this.block = buttonElement
@@ -577,17 +576,17 @@ class Button {
             flair: el(".button__flair")
         }
 
+        if (!this.DOM.flair) {
+            console.error("❌ Fant ikke .button__flair i:", this.block)
+            return
+        }
+
         this.xSet = gsap.quickSetter(this.DOM.flair, "xPercent")
         this.ySet = gsap.quickSetter(this.DOM.flair, "yPercent")
     }
 
     getXY(e) {
-        const {
-            left,
-            top,
-            width,
-            height
-        } = this.DOM.button.getBoundingClientRect()
+        const { left, top, width, height } = this.DOM.button.getBoundingClientRect()
 
         const xTransformer = gsap.utils.pipe(
             gsap.utils.mapRange(0, width, 0, 100),
@@ -607,9 +606,7 @@ class Button {
 
     initEvents() {
         this.DOM.button.addEventListener("mouseenter", (e) => {
-            console.log("HOVER!")
             const { x, y } = this.getXY(e)
-
             this.xSet(x)
             this.ySet(y)
 
@@ -622,7 +619,6 @@ class Button {
 
         this.DOM.button.addEventListener("mouseleave", (e) => {
             const { x, y } = this.getXY(e)
-
             gsap.killTweensOf(this.DOM.flair)
 
             gsap.to(this.DOM.flair, {
@@ -646,6 +642,15 @@ class Button {
         })
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const buttonElements = document.querySelectorAll('[data-block="button"]')
+    console.log("Fant knapper:", buttonElements)
+
+    buttonElements.forEach((buttonElement) => {
+        new Button(buttonElement)
+    })
+})
 
 //smooth scroll
 function smoothScroll(target) {
