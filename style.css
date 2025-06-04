@@ -553,7 +553,10 @@ body.dark .toggleSirkel {
 
 .vaer {
   grid-column: 8/12;
-  grid-row: 2/8;
+  grid-row: 2/14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*TODO LISTE*/
@@ -703,6 +706,11 @@ input[type="checkbox"]:checked:after {
 }
 
 /*VÆR*/
+#vaerInnhold{
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
 #vaerContainer {
   background-color: rgb(245, 245, 245);
   color: black;
@@ -710,8 +718,9 @@ input[type="checkbox"]:checked:after {
   border-radius: 12px;
   max-width: 600px;
   margin: 40px auto;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Quicksand';
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  height: 100%;
 }
 
 #vaerContainer h2 {
@@ -787,12 +796,14 @@ input[type="checkbox"]:checked:after {
   font-size: 16px;
   margin: 30px;
   font-weight: 500;
+  cursor: default;
 }
 
 .nyhetcard p {
   font-size: 13px;
   color: #ccc;
   margin: 30px;
+  cursor: default;
 }
 
 
