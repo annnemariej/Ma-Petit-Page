@@ -517,6 +517,11 @@ if (nedreboks && oppebokser) {
 
         fagliste.appendChild(fagDiv)
     }
+    nyttFagInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            leggTilFagBtn.click()
+        }
+    })
 
     function hentEgneFag() {
         return JSON.parse(localStorage.getItem("egnefag") || "[]")
