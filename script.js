@@ -362,44 +362,44 @@ const lon = 10.7461;
 const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,rain&forecast_days=3`;
 const vaercontainer = document.getElementById("vaerInnhold")
 
-if(vaercontainer){
+if (vaercontainer) {
 
-    
+
     fetch(apiUrl)
-    .then(res => res.json())
-    .then(data => {
-        const times = data.hourly.time;
-        const temps = data.hourly.temperature_2m;
-        const rain = data.hourly.rain;
-        const vaercontainer = document.getElementById("vaerInnhold")
-        
-        
-        for (let i = 0; i < times.length; i += 6) { // hopper over hver 6. time for mindre spam
-            const row = document.createElement("div")
-            row.className = "vaerRad"
-            
-            const tid = document.createElement("div")
-            tid.className = "vaerTid"
-            tid.textContent = new Date(times[i]).toLocaleString("no-NO", {
-                weekday: 'short', hour: '2-digit', minute: '2-digit'
-            });
-            
-            const temp = document.createElement("div")
-            temp.className = "vaerTemp"
-            temp.textContent = `${temps[i]} °C`
-            
-            const regn = document.createElement("div")
-            regn.className = "vaerRegn"
-            regn.textContent = `${rain[i]} mm`
-            
-            row.appendChild(tid)
-            row.appendChild(temp)
-            row.appendChild(regn)
-            
-            vaercontainer.appendChild(row)
-        }
-  })
-  .catch(err => console.error("Klarte ikke hente værdata:", err));
+        .then(res => res.json())
+        .then(data => {
+            const times = data.hourly.time;
+            const temps = data.hourly.temperature_2m;
+            const rain = data.hourly.rain;
+            const vaercontainer = document.getElementById("vaerInnhold")
+
+
+            for (let i = 0; i < times.length; i += 6) { // hopper over hver 6. time for mindre spam
+                const row = document.createElement("div")
+                row.className = "vaerRad"
+
+                const tid = document.createElement("div")
+                tid.className = "vaerTid"
+                tid.textContent = new Date(times[i]).toLocaleString("no-NO", {
+                    weekday: 'short', hour: '2-digit', minute: '2-digit'
+                });
+
+                const temp = document.createElement("div")
+                temp.className = "vaerTemp"
+                temp.textContent = `${temps[i]} °C`
+
+                const regn = document.createElement("div")
+                regn.className = "vaerRegn"
+                regn.textContent = `${rain[i]} mm`
+
+                row.appendChild(tid)
+                row.appendChild(temp)
+                row.appendChild(regn)
+
+                vaercontainer.appendChild(row)
+            }
+        })
+        .catch(err => console.error("Klarte ikke hente værdata:", err));
 }
 
 
@@ -499,7 +499,58 @@ if (nedreboks && oppebokser) {
         })
     }
 
-    
+    const fagliste = document.getElementById("fagliste")
+    const nyttFagInput = document.getElementById("nytt-fag-input")
+    const leggTilFagBtn = document.getElementById("legg-til-fag-btn")
+
+    function lagFagElement(navn) {
+        const fagDiv = document.createElement("div")
+        fagDiv.className = "fagdrag"
+        fagDiv.textContent = navn
+        fagDiv.setAttribute("draggable", "true")
+        fagDiv.setAttribute("data-fag", navn)
+        fagDiv.id = navn.toLowerCase().replace(/\s+/g, "-") + "-" + Date.now()
+
+        fagDiv.addEventListener("dragstart", function (e) {
+            e.dataTransfer.setData("text/plain", fagDiv.id)
+        })
+
+        fagliste.appendChild(fagDiv)
+    }
+
+    function hentEgneFag() {
+        return JSON.parse(localStorage.getItem("egnefag") || "[]")
+    }
+
+    function lagreEgneFag(fagArray) {
+        localStorage.setItem("egnefag", JSON.stringify(fagArray))
+    }
+
+    if (fagliste && nyttFagInput && leggTilFagBtn) {
+        window.addEventListener("DOMContentLoaded", () => {
+            const egneFag = hentEgneFag()
+            egneFag.forEach(fag => lagFagElement(fag))
+        })
+
+        leggTilFagBtn.addEventListener("click", () => {
+            const fagNavn = nyttFagInput.value.trim()
+            if (!fagNavn) return
+
+            
+            if ([...fagliste.children].some(el => el.textContent === fagNavn)) {
+                nyttFagInput.value = ""
+                return
+            }
+
+            lagFagElement(fagNavn)
+
+            const egneFag = hentEgneFag()
+            egneFag.push(fagNavn)
+            lagreEgneFag(egneFag)
+
+            nyttFagInput.value = ""
+        })
+    }
     lastInnTimeplan()
 }
 
@@ -595,21 +646,21 @@ class Button {
 function smoothScroll(target) {
     const element = document.getElementById(target)
     if (element) {
-      window.scrollTo({
-        top: element.offsetTop,
-        behavior: 'smooth'
-      })
+        window.scrollTo({
+            top: element.offsetTop,
+            behavior: 'smooth'
+        })
     }
-  }
+}
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const anchors = document.querySelectorAll('a[href^="#"]')
-    anchors.forEach(function(anchor) {
-      anchor.addEventListener('click', function(event) {
-        event.preventDefault()
-        const target = anchor.getAttribute('href').substring(1)
-        smoothScroll(target)
-        console.log("du trykket på knappen")
-      })
+    anchors.forEach(function (anchor) {
+        anchor.addEventListener('click', function (event) {
+            event.preventDefault()
+            const target = anchor.getAttribute('href').substring(1)
+            smoothScroll(target)
+            console.log("du trykket på knappen")
+        })
     })
-  })
+})
