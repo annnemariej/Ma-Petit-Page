@@ -1145,7 +1145,7 @@ input[type="checkbox"]:checked:after {
   grid-row: 3 / 13;
   grid-column: 2 / 6;
 }
-.spill .sec_4 .innhold{
+.spill .sec_6 .innhold{
   grid-column: 7/12;
   grid-row: 4/12;
 }
