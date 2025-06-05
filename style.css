@@ -710,7 +710,7 @@ input[type="checkbox"]:checked:after {
   flex-direction: column;
 }
 #vaerContainer {
-  background-color: rgb(245, 245, 245);
+  background-color: white
   color: black;
   padding: 40px;
   border-radius: 12px;
@@ -1081,38 +1081,76 @@ input[type="checkbox"]:checked:after {
 .spill .sec_1 a {
   text-decoration: none;
 }
-
-.spill .sec_2 img{
-  grid-row: 3 / 13;
-  grid-column: 2 / 6;
+.spill img{
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 30px;
 }
-.spill .sec_2 .innhold{
-  grid-column: 7/12;
-  grid-row: 4/12;
+.spill .innhold{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.spill .sec_2 .tekst{
+.spill .tekst{
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.spill .sec_2 h1{
+.spill h1{
   font-size: 70px;
 }
-.spill .sec_2 p{
+.spill p{
   font-size: 12px;
+}
+
+.spill .sec_2 img{
+  grid-row: 3 / 13;
+  grid-column: 2 / 6;
+}
+.spill .sec_2 .innhold{
+  grid-column: 7/12;
+  grid-row: 4/12;
 }
 .spill .button{
   width: fit-content;
   position: relative;
 }
+.spill .sec_3 .innhold{
+  grid-column: 2/7;
+  grid-row: 4/12;
+}
+.spill .sec_3 img{
+  grid-column: 8/12;
+  grid-row: 3 / 13;
+}
+.spill .sec_4 img{
+  grid-row: 3 / 13;
+  grid-column: 2 / 6;
+}
+.spill .sec_4 .innhold{
+  grid-column: 7/12;
+  grid-row: 4/12;
+}
+.spill .sec_5 .innhold{
+  grid-column: 2/7;
+  grid-row: 4/12;
+}
+.spill .sec_5 img{
+  grid-column: 8/12;
+  grid-row: 3 / 13;
+}
+.spill .sec_6 img{
+  grid-row: 3 / 13;
+  grid-column: 2 / 6;
+}
+.spill .sec_4 .innhold{
+  grid-column: 7/12;
+  grid-row: 4/12;
+}
+
+
 
 
 
