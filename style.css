@@ -1081,6 +1081,16 @@ input[type="checkbox"]:checked:after {
 .spill .sec_1 a {
   text-decoration: none;
 }
+.spill .sec_1 .knapp{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.spill .sec_1 p{
+  font-size: 15px;
+  font-weight: 900;
+}
 .spill img{
   height: 100%;
   width: 100%;
@@ -1148,6 +1158,21 @@ input[type="checkbox"]:checked:after {
 .spill .sec_6 .innhold{
   grid-column: 7/12;
   grid-row: 4/12;
+}
+.spill .sec_7 .katalog{
+  grid-row: 1/13;
+  grid-column: 1/15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+
+}
+.spill .sec_7 img{
+  width: 350px;
+  height: 300px;
+  cursor: pointer;
 }
 
 
