@@ -498,6 +498,9 @@ body.dark .toggleSirkel {
 
 .login-box h2 {
   font-weight: 900;
+  background: linear-gradient(to right, red, blue);
+  background-clip: text;
+  color: transparent;
 }
 
 .login-box img {
@@ -1098,21 +1101,21 @@ input[type="checkbox"]:checked:after {
   object-fit: cover;
   border-radius: 30px;
 }
-.spill .innhold{
+.spill main .innhold{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.spill .tekst{
+.spill main .tekst{
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.spill h1{
+.spill main h1{
   font-size: 70px;
 }
-.spill p{
+.spill main p{
   font-size: 12px;
 }
 
