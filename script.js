@@ -127,6 +127,7 @@ function checkAccess() {
     if (validPattern.test(code)) {
         localStorage.setItem("loggedIn", "true")
         showMainContent()
+        xMark.style.display = "none"
     } else if (codeInput.value === "") {
         errorMsg.textContent = "Du må skrive inn et passord"
     } else {
