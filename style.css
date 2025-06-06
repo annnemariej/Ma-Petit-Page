@@ -710,8 +710,8 @@ input[type="checkbox"]:checked:after {
   flex-direction: column;
 }
 #vaerContainer {
-  background-color: white
-  color : black;
+  background-color: white;
+  color: black;
   padding: 40px;
   border-radius: 12px;
   max-width: 600px;
@@ -754,6 +754,7 @@ input[type="checkbox"]:checked:after {
   flex: 1;
   text-align: right;
 }
+
 
 /*NYHETER SKJERM*/
 
