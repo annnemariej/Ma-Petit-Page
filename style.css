@@ -789,10 +789,14 @@ input[type="checkbox"]:checked:after {
   overflow: hidden;
   position: relative;
   height: 480px;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
 }
 
 .nyhetcard:hover {
-  animation: scale-down-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  transform: scale(0.9);
+  transition: transform 0.2s;
 }
 
 .nyhetcard img {
@@ -1171,12 +1175,20 @@ input[type="checkbox"]:checked:after {
   align-items: center;
   flex-wrap: wrap;
   gap: 50px;
+  height: 100vh;
 
 }
 .spill .sec_7 img{
   width: 450px;
-  height: 350px;
+  height: 375px;
   cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+.spill .sec_7 img:hover{
+  transform: scale(0.9);
+  transition: transform 0.2s;
 }
 
 
@@ -1503,15 +1515,5 @@ body.dark #vaerContainer {
   45% {
     transform: scale(1);
     animation-timing-function: ease-out;
-  }
-}
-
-@keyframes scale-down-center {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0.9);
   }
 }
