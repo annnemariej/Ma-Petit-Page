@@ -56,9 +56,9 @@ function visTapt() {
 }
 
 // Lyd
-const bakgrunnsMusikk = new Audio('Lyd/bakgrunnsmusikk.mp3')
-const jumpSound = new Audio('Lyd/retro-jump.mp3')
-const runSound = new Audio("Lyd/run.mp3")
+const bakgrunnsMusikk = new Audio('../../Lyd/bakgrunnsmusikk.mp3')
+const jumpSound = new Audio('../../Lyd/retro-jump.mp3')
+const runSound = new Audio("../../Lyd/run.mp3")
 
 //canvas
 const canvas = document.querySelector("canvas")
@@ -82,7 +82,7 @@ const spiller = {
 }
 
 const spillerBilde = new Image()
-spillerBilde.src = "Bilder/mario.png"
+spillerBilde.src = "../../Bilder//mario.png"
 
 function tegneSpiller() {
     ctx.drawImage(spillerBilde, spiller.x, spiller.y, spiller.width, spiller.height)
@@ -97,8 +97,8 @@ const konkeyDong = {
 }
 
 const konkeyDongBilder = [
-    "Bilder/konkey.png",
-    "Bilder/konkey2.png",
+    "../../Bilder//konkey.png",
+    "../../Bilder//konkey2.png",
 ]
 
 let konkeyBildeIndex = 0
@@ -126,8 +126,8 @@ const prinsesse = {
 }
 
 const prinsesseBilder = [
-    "Bilder/prinsesse.png",
-    "Bilder/prinsesse2.jpg",
+    "../../Bilder//prinsesse.png",
+    "../../Bilder//prinsesse2.jpg",
 ]
 
 let prinsbildeIndex = 0
@@ -313,17 +313,17 @@ function holderKeys(event) {
     if (event.key === "ArrowRight" || event.key === "d") {
         spiller.dx = spiller.speed
         runSound.play()
-        spillerBilde.src = "Bilder/mariohoyre.jpg"
+        spillerBilde.src = "../../Bilder//mariohoyre.jpg"
     } else if (event.key === "ArrowLeft" || event.key === "a") {
         spiller.dx = -spiller.speed
         runSound.play()
-        spillerBilde.src = "Bilder/mariovenstre.png"
+        spillerBilde.src = "../../Bilder//mariovenstre.png"
     } else if (event.key === "ArrowUp" || event.key === "w") {
         if (spiller.onGround) {
             spiller.dy = spiller.jumpPower
             spiller.onGround = false
             jumpSound.play()
-            spillerBilde.src = "Bilder/mario.png"
+            spillerBilde.src = "../../Bilder//mario.png"
 
         }
     }
@@ -336,7 +336,7 @@ function sluppetKey(event) {
         spiller.dx = 0
         runSound.pause()
         runSound.currentTime = 0
-        spillerBilde.src = "Bilder/mario.png"
+        spillerBilde.src = "../../Bilder//mario.png"
     }
 }
 
