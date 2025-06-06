@@ -1170,12 +1170,12 @@ input[type="checkbox"]:checked:after {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 50px;
 
 }
 .spill .sec_7 img{
-  width: 350px;
-  height: 300px;
+  width: 450px;
+  height: 350px;
   cursor: pointer;
 }
 
