@@ -1088,7 +1088,7 @@ input[type="checkbox"]:checked:after {
 .spill .sec_1 .knapp{
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 .spill .sec_1 p{
