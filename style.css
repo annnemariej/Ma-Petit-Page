@@ -176,11 +176,11 @@ nav {
 #bruker {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   flex-direction: row;
-  gap: 10%;
   height: 3vh;
   width: 30%;
+  gap: 10%;
 }
 
 #bruker i {
